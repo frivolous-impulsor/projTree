@@ -1,0 +1,26 @@
+{% extends "post/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    <div>
+        <form method="POST">
+            {%csrf_token%}
+            <fieldset class="form-group">
+                {{form|crispy}}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn" type="submit">
+                    Post
+                </button>
+            </div>
+        </form>
+
+        <form >
+            <small>
+                Changed ur mind?
+                <a href="{%url 'posts'%}" class="btn">Cancel</a>
+            </small>
+        </form>
+    </div>
+
+{% endblock %}
