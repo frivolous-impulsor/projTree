@@ -18,7 +18,7 @@ class PostDetailView(DetailView): #temp_name = post_detail.html, context_object_
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
-    fields = ['title', 'content']
+    fields = ['title', 'content', 'year']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
