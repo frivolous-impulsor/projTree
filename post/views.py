@@ -2,22 +2,12 @@ from typing import Any
 from django.db.models.query import QuerySet
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Post, Seed
+from .models import Post
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
 # Create your views here.
-class SeedsListView(ListView):
-    model = Seed
-    context_object_name = 'seeds'
-    template_name = 'seed_list.html'
-
-class SeedDetailView(DetailView):
-    model = Seed
-    context_object_name = 'seed'
-    template_name = 'seed_detail.html'
-
 class PostListView(ListView): #temp_name = post_list.html
     model = Post
     context_object_name = 'posts'
@@ -25,6 +15,7 @@ class PostListView(ListView): #temp_name = post_list.html
 
 class PostDetailView(DetailView): #temp_name = post_detail.html, context_object_name = object
     model = Post
+    context_object_name = 'post'
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post

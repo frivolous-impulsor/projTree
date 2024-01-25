@@ -1,16 +1,16 @@
 {% extends "post/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-    {% if object.author == user %}
+    {% if post.author == user %}
         <div>
-            <a href="{% url 'post_update' object.id %}">Edit</a>
-            <a href="{% url 'post_delete' object.id %}">Delete</a>
+            <a href="{% url 'post_update' post.id %}">Edit</a>
+            <a href="{% url 'post_delete' post.id %}">Delete</a>
         </div>
     {% endif %}
     <div>
-       {{object.author}}
-       {{object.title}} 
-       {{object.content}}
+       {{post.author}}
+       {{post.title}} 
+       {{post.content}}
     </div>
 
 

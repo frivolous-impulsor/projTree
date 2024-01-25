@@ -1,0 +1,14 @@
+{% extends "post/base.html" %}
+{% block content %}
+    <div class="row">
+        {% for seed in seeds %}
+        <div class="col-sm">
+            <a class="font-weight-bold" href=" ">{{ seed.seedName }}</a>
+            <a href="">{{ seed.author }}</a>
+            <a href=""><img style="width: 10rem;" class="img_fluid rounded mx-auto d-block " src="{{ seed.seedImg.url }}" alt="{{ seed.seedName }} image"></a>
+        </div>
+        {% endfor %}
+
+    </div>
+    
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "post/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <h1> Detail Page of {{seed.SeedName}} </h1>
+    {% if seed.author == user %}
+        <div>
+            <a href="">TODO Edit</a>
+            <a href="">TODO Delete</a>
+        </div>
+    {% endif %}
+    <div>
+       <img src="{{seed.seedImg.url}}" alt="img of {{seed.seedName}}">
+       <img src="{{seed.plantImg.url}}" alt="img of plant">
+        <p>{{seed.content}}</p>
+    </div>
+
+
+{% endblock %}
