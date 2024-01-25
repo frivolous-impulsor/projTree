@@ -4,8 +4,8 @@ from django.utils import timezone
 from django.urls import reverse
 # Create your models here.
 
-YEAR_IN_SCHOOL_CHOICES = [
-    ("FR", "Freshman"),
+Months = [
+    ("Jan", "January"),
     ("SO", "Sophomore"),
     ("JR", "Junior"),
     ("SR", "Senior"),
@@ -15,8 +15,13 @@ class Seed(models.Model):
     author = models.ForeignKey(User, on_delete=models.DO_NOTHING) #not on_delete
     seedName = models.CharField(max_length=50)
     seedImg = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=None)
+    obtainTime = models.CharField(max_length=3, choices=Months, default="Jan")
+    plantImg = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=None)
+    growthRate = models.IntegerField()
+    edibleFruit = models.BooleanField()
 
 class Step(models.Model):
+    seed = models.ForeignKey(Seed, on_delete=models.CASCADE)
     img = models.ImageField()
     description = models.TextField()
 
@@ -25,7 +30,7 @@ class Post(models.Model):
     title = models.CharField(max_length=50)
     img = models.ImageField() #to be specified
     content = models.TextField()
-    year = models.CharField(max_length=3, choices = YEAR_IN_SCHOOL_CHOICES, default="FR")
+    year = models.CharField(max_length=3, choices = Months, default="FR")
     date_posted = models.DateField(default = timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
