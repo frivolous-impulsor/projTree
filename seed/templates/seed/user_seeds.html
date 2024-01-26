@@ -1,0 +1,9 @@
+{% extends "post/base.html" %}
+{% block content %}
+    <h1>Seeds by {{ view.kwargs.username }}</h1>
+    {% for seed in seeds %}
+        <a href="{%url 'seed_detail' seed.id%}">{{ seed.seedName }}</a>
+        <p>{{seed.content}} </p>
+    {% endfor %}
+
+{% endblock %}

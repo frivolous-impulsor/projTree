@@ -37,3 +37,11 @@ class SeedDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     def test_func(self) -> bool | None: #ensure current user only edits their posts
         post = self.get_object()
         return post.author == self.request.user
+    
+class UserPostedSeeds(ListView):
+    model = Seed
+    context_object_name = 'seeds'
+    template_name = 'seed/user_seeds.html'
+    def get_queryset(self) -> QuerySet[Any]:
+        user = get_object_or_404(User, username = self.kwargs.get('username'))
+        return Seed.objects.filter(author = user).order_by('-date_posted')
