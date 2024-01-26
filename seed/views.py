@@ -16,3 +16,10 @@ class SeedDetailView(DetailView):
     model = Seed
     context_object_name = 'seed'
 
+class SeedCreateView(LoginRequiredMixin, CreateView):
+    model = Seed
+    fields = ['seedName', 'content', 'seedImg', 'obtainTime', 'plantImg', 'growthRate', 'edibleFruit']
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
