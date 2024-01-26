@@ -4,15 +4,21 @@
     <h1> Detail Page of {{seed.SeedName}} </h1>
     {% if seed.author == user %}
         <div>
-            <a href="">TODO Edit</a>
-            <a href="">TODO Delete</a>
-        </div>
+            <a href=" {%url 'seed_update' seed.id %} ">Edit</a>
+            <a href="{%url 'seed_delete' seed.id%} ">Delete</a>
+        </div> 
     {% endif %}
     <div>
        <img style="height: 10rem;" src="{{seed.seedImg.url}}" alt="img of {{seed.seedName}}">
        <img style="height: 10rem;" src="{{seed.plantImg.url}}" alt="img of plant">
         <p>{{seed.content}}</p>
     </div>
+    {% if seed.author == user %}
+        <div>
+            <a href=" ">TODO Add Steo</a>
+        </div>
+    {% endif %}
+    
 
 
 {% endblock %}

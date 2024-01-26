@@ -19,7 +19,7 @@ class PostDetailView(DetailView): #temp_name = post_detail.html, context_object_
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
-    fields = ['title', 'content', 'year']
+    fields = ['title', 'content']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -31,10 +31,10 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
-    
     def test_func(self) -> bool | None: #ensure current user only edits their posts
         post = self.get_object()
         return post.author == self.request.user
+    
     
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post

@@ -5,6 +5,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Seed, Step
+from django.urls import reverse
 
 # Create your views here.
 class SeedsListView(ListView):
@@ -23,3 +24,16 @@ class SeedCreateView(LoginRequiredMixin, CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
+class SeedUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Seed
+    fields = ['seedName', 'content', 'seedImg', 'obtainTime', 'plantImg', 'growthRate', 'edibleFruit']
+    def test_func(self) -> bool | None: #ensure current user only edits their posts
+        post = self.get_object()
+        return post.author == self.request.user
+
+class SeedDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Seed
+    success_url = '/seed/' #absolute url after localhost
+    def test_func(self) -> bool | None: #ensure current user only edits their posts
+        post = self.get_object()
+        return post.author == self.request.user
