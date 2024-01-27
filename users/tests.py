@@ -5,8 +5,12 @@ from django.contrib.auth import get_user_model
 # Create your tests here.
 
 class UserTests(TestCase):
-    def setUp(self):
-        self.testUser = get_user_model().objects.create(username = 'testuser',
-                                                    email = 'test@gmail.com',
-                                                    password = 'secrete')
-        self.testProfile = Profile.objects.create(user = self.testUser)
+    username = 'newUser'
+    email = 'new@gmail.com'
+
+    def test_register_page_status_code(self):
+        response = self.client.get(reverse('register'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'users/register.html')
+    
+
