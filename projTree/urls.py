@@ -17,7 +17,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from post import views as post_views
-from users import views as users_views
 from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -26,16 +25,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('seed/', include('seed.urls')),
     path('step/', include('step.urls')),
-    path('', post_views.PostListView.as_view(), name='posts'),
-    path('posts/<username>', post_views.UserPostListView.as_view(), name='user_posts'),
-    path('post/<int:pk>', post_views.PostDetailView.as_view(), name='post_detail'),
-    path('post/new/', post_views.PostCreateView.as_view(), name='post_create'),
-    path('post/<int:pk>/update/', post_views.PostUpdateView.as_view(), name='post_update'),
-    path('post/<int:pk>/delete/', post_views.PostDeleteView.as_view(), name='post_delete'),
-    path('register/', users_views.register, name='register'),
-    path('login/', auth_views.LoginView.as_view(template_name = 'users/login.html'), name='login'),
-    path('logout/', users_views.UserLogout, name='logout'),
-    path('profile/', users_views.profile, name='profile'),
+    path('account/', include('users.urls')),
+    path('post/', include('post.urls')),
 ]
 
 if settings.DEBUG:

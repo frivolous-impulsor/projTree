@@ -5,7 +5,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from .models import Post
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-
+from django.urls import reverse_lazy
 
 # Create your views here.
 class PostListView(ListView): #temp_name = post_list.html
@@ -38,7 +38,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
-    success_url = '/'
+    success_url = reverse_lazy('posts')
     def test_func(self) -> bool | None: #ensure current user only edits their posts
         post = self.get_object()
         return post.author == self.request.user

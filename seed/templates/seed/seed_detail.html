@@ -1,7 +1,7 @@
 {% extends "post/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <h1> Detail Page of {{seed.SeedName}} </h1>
+    <h1> Detail Page of {{seed.seedName}} </h1>
     {% if seed.author == user %}
         <div>
             <a href=" {%url 'seed_update' seed.id %} ">Edit</a>
