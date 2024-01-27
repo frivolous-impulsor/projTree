@@ -24,18 +24,24 @@
               </li>
               {% if user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link mx-2" href="{% url 'logout' %}">Logout</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link mx-2" href="{% url 'profile' %}">My Profile</a>
+                <a class="nav-link mx-2" href="{% url 'seed_create' %}">Create Seed</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link mx-2" href="{% url 'post_create' %}">Create Post</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link mx-2" href="{% url 'seed_form' %}">Create Seed</a>
+                <a class="nav-link mx-2" href="{% url 'profile' %}">My Profile</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link mx-2" href="{% url 'logout' %}">Logout</a>
+              </li>
+              <div class="nav-item">
+                <p class="nav-link mx-2">Welcome, {{user.username}}!</p>
+              </div>
               {% else %}
+              <div class="nav-item">
+                <p class="nav-link mx-2">Haven't logged in. </p>
+              </div>
               <li class="nav-item">
                 <a class="nav-link mx-2" href="{% url 'login' %}">Login</a>
               </li>
@@ -46,9 +52,7 @@
               <li class="nav-item">
                 <a class="nav-link mx-2" href="#">About</a>
               <li class="nav-item">
-              <div class="nav-item">
-                <p class="nav-link mx-2">Welcome, {{user.username}}!</p>
-              </div>
+              
             </ul>
             
           </div>
