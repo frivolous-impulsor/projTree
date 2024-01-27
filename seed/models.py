@@ -50,12 +50,3 @@ class Seed(models.Model):
             pimg.thumbnail(output_size)
             pimg.save(self.plantImg.path)
     
-
-class Step(models.Model):
-    img = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=None, default='default.jpg')
-    content = models.TextField()
-    seed = models.ForeignKey("seed.Seed", on_delete=models.CASCADE)
-
-    def __str__(self) -> str:
-        return f'{self.seed.seedName} step'
-    

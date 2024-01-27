@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'post.apps.PostConfig',
     'seed.apps.SeedConfig',
+    'step.apps.StepConfig',
     'users.apps.UsersConfig',
     'crispy_forms',
     "crispy_bootstrap4",

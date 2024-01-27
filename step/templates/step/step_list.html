@@ -1,0 +1,16 @@
+{% extends "post/base.html" %}
+{% block content %}
+    <div class="row">
+        <h3>Steps for {{view.kwargs.seedName}} </h3>
+        {% for step in steps %}
+        <div class="col-sm border border-primary">
+            <a href=""><img style="width: 10rem;" class="img_fluid rounded mx-auto d-block " src="{{ step.img.url }}" alt="{{ step.seed.seedName }} image"></a>
+            <p>
+                {{step.content}}
+            </p>
+        </div>
+        {% endfor %}
+
+    </div>
+    
+{% endblock %}
