@@ -20,7 +20,7 @@ class StepListView(ListView):
     
 class StepCreateView(LoginRequiredMixin, CreateView):
     model = Step
-    fields = ['img', 'content']
+    fields = ['img', 'title', 'content']
     def form_valid(self, form):
         target_seedName = self.kwargs['seedName']
         seed = Seed.objects.get(seedName = target_seedName)
@@ -32,7 +32,7 @@ class StepCreateView(LoginRequiredMixin, CreateView):
 
 class StepUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Step
-    fields = ['img', 'content']
+    fields = ['img', 'title', 'content']
     def test_func(self) -> bool | None: #ensure current user only edits their posts
         step = self.get_object()
         return step.seed.author == self.request.user

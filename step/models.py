@@ -4,6 +4,7 @@ from seed.models import Seed
 # Create your models here.
 class Step(models.Model):
     img = models.ImageField(default='default_seed_pic.PNG', upload_to='step_pics')
+    title = models.CharField(max_length=50)
     content = models.TextField()
     seed = models.ForeignKey("seed.Seed", on_delete=models.CASCADE)
 
