@@ -7,5 +7,5 @@ urlpatterns = [
     path('create/', SeedCreateView.as_view(), name='seed_create'),
     path('<int:pk>/update/', SeedUpdateView.as_view(), name='seed_update'),
     path('<int:pk>/delete/', SeedDeleteView.as_view(), name='seed_delete'),
-    path('seeds/<username>', UserPostedSeeds.as_view(), name='user_seeds'),
+    path('<username>/seeds', UserPostedSeeds.as_view(), name='user_seeds'),
 ]

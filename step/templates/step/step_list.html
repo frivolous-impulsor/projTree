@@ -9,7 +9,14 @@
                 {{step.content}}
             </p>
         </div>
+        {% if user == steps.0.seed.author %}
+        <a href="{% url 'step_update' seedName=view.kwargs.seedName pk=step.id %} ">Edit</a>
+        <a href="{% url 'step_delete' seedName=view.kwargs.seedName pk=step.id %} ">Delete</a>
+        {% endif %}
         {% endfor %}
+        {% if user == steps.0.seed.author %}
+        <a href="{% url 'step_create' view.kwargs.seedName %} ">append New Step</a>
+        {% endif %}
 
     </div>
     
