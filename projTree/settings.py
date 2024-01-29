@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'step.apps.StepConfig',
     'users.apps.UsersConfig',
     'crispy_forms',
-    "crispy_bootstrap4",
+    "crispy_bootstrap5",
 ]
 
 MIDDLEWARE = [
@@ -130,7 +130,7 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 LOGIN_REDIRECT_URL = 'posts'
 LOGIN_URL = 'login'  #direct user to 'login' when user tries to enter a login-required page 
