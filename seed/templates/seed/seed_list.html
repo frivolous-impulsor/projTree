@@ -1,14 +1,15 @@
 {% extends "post/base.html" %}
 {% block content %}
-    <div class="row bg-dark gy-3 gx-3 ">
-        {% for seed in seeds %}
-        <div class="col-lg-3 col-md-4 col-sm-6 align-items-center justify-content-center bg-info">
-            <a class="" href="{% url 'seed_detail' seed.id %} ">{{ seed.seedName }}</a>
-            <a href="{%url 'user_seeds' seed.author %} ">{{ seed.author }}</a>
-            <a class="img-fluid"  href="{% url 'seed_detail' seed.id %}"><img style="width: 10rem;" class="img_fluid rounded mx-auto d-block " src="{{ seed.seedImg.url }}" alt="{{ seed.seedName }} image"></a>
-        </div>
-        {% endfor %}
 
+<div class="row bg-dark gy-3 gx-3 ">
+    {% for seed in seeds %}
+    <div class="col-lg-3 col-md-4 col-sm-6 align-items-center justify-content-center bg-info">
+        <a class="" href="{% url 'seed_detail' seed.id %} ">{{ seed.seedName }}</a>
+        <a href="{%url 'user_seeds' seed.author %} ">{{ seed.author }}</a>
+        <a class="img-fluid"  href="{% url 'seed_detail' seed.id %}"><img style="width: 10rem;" class="img_fluid rounded mx-auto d-block " src="{{ seed.seedImg.url }}" alt="{{ seed.seedName }} image"></a>
     </div>
+    {% endfor %}
+
+</div>
     
 {% endblock %}

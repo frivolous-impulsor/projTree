@@ -8,69 +8,76 @@
     <title>Posts</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <div class="container">
-          <a class="navbar-brand d-md-none d-xs-block py-3" href="#">
-            <img src="media/treeproj-high-resolution-logo.png" height="40" alt="Company Logo">
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-      
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav mx-auto">
-              <li class="nav-item">
-                <a class="nav-link mx-2 active" aria-current="page" href="{% url 'seed_list' %}">Home</a>
-              </li>
-              {% if user.is_authenticated %}
-              <li class="nav-item">
-                <a class="nav-link mx-2" href="{% url 'seed_create' %}">Create Seed</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link mx-2" href="{% url 'post_create' %}">Create Post</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link mx-2" href="{% url 'profile' %}">My Profile</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link mx-2" href="{% url 'logout' %}">Logout</a>
-              </li>
-              <div class="nav-item">
-                <p class="nav-link mx-2">Welcome, {{user.username}}!</p>
-              </div>
-              {% else %}
-              <div class="nav-item">
-                <p class="nav-link mx-2">Haven't logged in. </p>
-              </div>
-              <li class="nav-item">
-                <a class="nav-link mx-2" href="{% url 'login' %}">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link mx-2" href="{% url 'register' %}">Register</a>
-              </li>
-              {% endif %}
-              <li class="nav-item">
-                <a class="nav-link mx-2" href="#">About</a>
-              <li class="nav-item">
-              
-            </ul>
-            
-          </div>
+  <div class="container row">
+
+    <div class="navPart col-md-2">
+      <div class="org">
+        <a class="navbar-brand" href="{% url 'seed_list' %} ">
+          projTree
+        </a>
+      </div>
+
+      <ul class="nav flex-column my-4 ">
+        <div class="nav-item">
+          <img src="media/icons/seed_list_icon.svg" alt="alt">
+          <a href="{% url 'seed_list' %}">seeds</a>
+        </div>
+        <div class="nav-item">
+          <img src="media/icons/posts_icon.svg" alt="">
+          <a href="{% url 'posts' %}">posts</a>
         </div>
 
-      </nav>
-    {% if messages %}
+
+
+        {% if user.is_authenticated %}
+        <div class="nav-item">
+          <img src="media/icons/post_create_icon.svg" alt="">
+          <a href="{% url 'post_create' %}">write post</a>
+        </div>
+        <div class="nav-item">
+          <img src="media/icons/seed_create_icon.svg" alt="">
+          <a href="{% url 'seed_create' %}">archive seed</a>
+        </div>
+        <div class="nav-item">
+          <img src="media/icons/profile_icon.svg" alt="">
+          <a href="{% url 'profile' %}">profile</a>
+        </div>
+        <div class="nav-item">
+          <img src="media/icons/logout_icon.svg" alt="">
+          <a href="{% url 'logout' %}">logout</a>
+        </div>
+
+
+
+        {% else %}
+        <div class="nav-item">
+          <img src="media/icons/login_icon.svg" alt="">
+          <a href="{% url 'login' %}">login</a>
+        </div>
+        <div class="nav-item">
+          <img src="media/icons/register_icon.svg" alt="">
+          <a href="{% url 'register' %}">register</a>
+        </div>
+        {% endif %}
+
+      </ul>
+    </div>
+
+    <div class="contentPart col-md-8">
+    {% block content %}
+    {% endblock %}
+    </div>
+
+    <div class="msgPart col-m-2">
+      {% if messages %}
       {% for message in messages %}
         <div class="alert">
           {{message}}
         </div>
       {% endfor %}
-    {% endif %}
+      {% endif %}
+  </div>
 
-    <div class="container-md overflow-hidden">
-    {% block content %}
-    {% endblock %}
-    </div>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
