@@ -132,5 +132,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
-LOGIN_REDIRECT_URL = 'posts'
+LOGIN_REDIRECT_URL = 'seed_list'
 LOGIN_URL = 'login'  #direct user to 'login' when user tries to enter a login-required page 
