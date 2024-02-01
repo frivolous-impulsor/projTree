@@ -19,19 +19,17 @@
 
 
   <div class="container row">
-    <div class="navPart col-lg-3 col-md-0 d-none d-sm-block d-xl-none">
-      <div class="org">
-        <a class="navbar-brand" href="{% url 'seed_list' %} ">
-          <p>projTree</p>
-        </a>
+    <div class="navPart col-2 border-end">
+      <div class="org border">
+        <a class="navbar-brand" href="{% url 'seed_list' %} ">projTree</a>
       </div>
 
-      <ul class="row flex-column my-5 ">
-        <div class="nav-item text-uppercase fw-bold button">
+      <ul class="navs">
+        <div class="border  text-uppercase fw-bold button">
           <img src="{% static 'seed/seed_list_icon.svg' %}" alt="alt">
           <a class="text-decoration-none" href="{% url 'seed_list' %}">seeds</a>
         </div>
-        <div class="border nav-item text-uppercase fw-bold button">
+        <div class="border text-uppercase fw-bold button">
           <img src="{% static 'seed/posts_icon.svg' %}" alt="">
           <a class="text-decoration-none" href="{% url 'posts' %}">posts</a>
         </div>
@@ -72,12 +70,12 @@
       </ul>
     </div>
 
-    <div class="contentPart col-md-7">
+    <div class="contentPart col-8">
     {% block content %}
     {% endblock %}
     </div>
 
-    <div class="msgPart col-m-2">
+    <div class="msgPart col-2 border">
       {% if messages %}
       {% for message in messages %}
         <div class="alert">

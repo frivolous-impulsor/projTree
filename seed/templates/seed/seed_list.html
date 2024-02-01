@@ -1,22 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="row bg-dark gy-3 gx-3 ">
-    {% for seed in seeds %}
-    <div class="col-lg-3 col-md-4 col-sm-6 align-items-center justify-content-center bg-info">
-        <a href="{% url 'seed_detail' seed.id %}">
-            <div class="card" style="width: 18rem;">
-            <img src="{{ seed.seedImg.url }}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <p class="card-text">{{ seed.seedName }}</p>
-                <p class="card-text">{{ seed.author }}</p>
-            </div>
-            </div>
-        </a>
-        
-        
+<div>
+    <div class="heading border-bottom">
+        <p>Seed List</p>
     </div>
-    {% endfor %}
+    <div class="row g-2 mt-1">
+        {% for seed in seeds %}
+        <div class="col-lg-3 col-md-4 col-sm-6 align-items-center justify-content-center">
+            <a href="{% url 'seed_detail' seed.id %}">
+                <div class="seed_card border" >
+                <img src="{{ seed.seedImg.url }}" class="card-img-top" alt="...">
+                <div class="">
+                    <p class="card-text">{{ seed.seedName }}</p>
+                    <p class="card-text">{{ seed.author }}</p>
+                </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    
 
 </div>
     
