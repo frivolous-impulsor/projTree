@@ -1,10 +1,15 @@
-{% extends "post/base.html" %}
+{% extends "base.html" %}
 {% block content %}
 
-{% for post in posts %}
-    <a href="{%url 'post_detail' post.id%}">{{ post.title }}</a>
-    <a href="{%url 'user_posts' post.author.username%}">{{ post.author }}</a>
-    <p>{{post.content}} </p>
-{% endfor %}
+<div class="row bg-dark gy-3 gx-3 ">
+    {% for post in posts %}
+    <div class="col-lg-3 col-md-4 col-sm-6 align-items-center justify-content-center bg-info">
+        <a href="{%url 'post_detail' post.id%}">{{ post.title }}</a>
+        <a class="text-muted" href="{%url 'user_posts' post.author.username%}">{{ post.author }}</a>
+        <p>{{post.content}} </p>
+    </div>
+    {% endfor %}
 
+</div>
+    
 {% endblock %}

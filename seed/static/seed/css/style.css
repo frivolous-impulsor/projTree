@@ -1,0 +1,13 @@
+body {
+    font-family:'Inria+Serif';
+    .navPart {
+        .org {
+            font-weight: 700;
+            p {
+                color:  #085f63;
+            }
+        }
+    }
+
+}
+
