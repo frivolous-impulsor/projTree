@@ -24,12 +24,12 @@
         <a class="navbar-brand" href="{% url 'seed_list' %} ">projTree</a>
       </div>
 
-      <ul class="navs">
-        <div class="border  text-uppercase fw-bold button">
+      <ul class="navs row g-3">
+        <div class="border  text-uppercase fw-bold button col-12">
           <img src="{% static 'seed/seed_list_icon.svg' %}" alt="alt">
           <a class="text-decoration-none" href="{% url 'seed_list' %}">seeds</a>
         </div>
-        <div class="border text-uppercase fw-bold button">
+        <div class="border text-uppercase fw-bold button col-12">
           <img src="{% static 'seed/posts_icon.svg' %}" alt="">
           <a class="text-decoration-none" href="{% url 'posts' %}">posts</a>
         </div>

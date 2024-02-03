@@ -23,7 +23,7 @@ body {
     .contentPart {
         .heading {
             text-align: center;
-
+            background-color: white;
         }
         
         .seed_card {
