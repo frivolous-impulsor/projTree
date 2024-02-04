@@ -1,21 +1,16 @@
 body {
     font-family:'Inria Serif';
-    padding: 0px;
-    margin: 0px;
-    
     .navPart {
-
+        align-items: start;
         .org {
             font-weight: 800;
             a {
-                color:  #085f63;
                 font-size:xx-large;
             }
         }
 
         .navs {
             padding: 0;
-            margin-top: 5rem;
             text-align: center;
         }
     }
