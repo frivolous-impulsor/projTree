@@ -46,3 +46,10 @@ class UserPostedSeeds(ListView):
         user = get_object_or_404(User, username = self.kwargs.get('username'))
         return Seed.objects.filter(author = user).order_by('-date_posted')
     
+def search_seed(request):
+    if request.method == 'POST':
+        searched = request.POST['searched']
+        seeds = Seed.objects.filter(content__contains = searched) | Seed.objects.filter(seedName__contains = searched) | Seed.objects.filter(obtainTime__contains = searched)
+        return render(request, 'seed/search_seed.html', {'searched': searched, 'seeds': seeds})
+    else:
+        return render(request, 'seed/search_seed.html', {})

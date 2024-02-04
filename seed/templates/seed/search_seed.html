@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div>
+    {% if searched %}
+    <div class="heading border-bottom sticky-top">
+        <p>Search Result For {{searched}}</p>
+    </div>
+    <div class="row g-2 mt-1">
+        {% for seed in seeds %}
+        <div class="col-lg-3 col-md-4 col-sm-6 align-items-center justify-content-center">
+            <a href="{% url 'seed_detail' seed.id %}">
+                <div class="seed_card border" >
+                <img src="{{ seed.seedImg.url }}" class="card-img-top" alt="...">
+                <div class="">
+                    <p class="card-text">{{ seed.seedName }}</p>
+                    <p class="card-text">{{ seed.author }}</p>
+                </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="heading border-bottom sticky-top">
+        <p>Search not valid</p>
+    </div>
+    {% endif %}
+</div>
+    
+{% endblock %}

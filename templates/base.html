@@ -67,6 +67,11 @@
         </div>
         {% endif %} -->
 
+        <form class="d-flex" method=POST action="{% url 'search_seed' %} "> {% csrf_token %}
+          <input class="form-control me-2" type="search" placeholder="seed info" aria-label="Search" name="searched">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+
       </ul>
     </div>
 
