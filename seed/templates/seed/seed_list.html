@@ -7,7 +7,7 @@
     </div>
     <div class="row g-2 mt-1">
         {% for seed in seeds %}
-        <div class="col-lg-3 col-md-4 col-sm-6 align-items-center justify-content-center">
+        <div class="col-lg-3 col-md-4 col-sm-6">
             <a href="{% url 'seed_detail' seed.id %}">
                 <div class="seed_card border" >
                 <img src="{{ seed.seedImg.url }}" class="card-img-top" alt="...">
