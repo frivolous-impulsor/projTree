@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 from django.urls import reverse
 from PIL import Image
+from django_resized import ResizedImageField
 
 # Create your models here.
 Months = [
@@ -25,9 +26,9 @@ class Seed(models.Model):
     date_posted = models.DateField(default = timezone.now)
     seedName = models.CharField(max_length=50, unique=True)
     content = models.TextField()
-    seedImg = models.ImageField(default='default_seed_pic.PNG', upload_to='seed_pics')
+    seedImg = ResizedImageField(size=[500,300], upload_to='seed_pics', default='default_seed_pic.PNG')
     obtainTime = models.CharField(max_length=3, choices=Months, default="Jan")
-    plantImg = models.ImageField(default='default_plant_pic.jpeg', upload_to='plant_pics')
+    plantImg = ResizedImageField(size=[500,300], upload_to='plant_pics', default='default_plant_pic.PNG')
     growthRate = models.IntegerField(null=False, default = 0)
     edibleFruit = models.BooleanField(null=False, default = False)
 
