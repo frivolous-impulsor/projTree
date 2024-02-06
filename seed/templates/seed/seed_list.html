@@ -7,13 +7,13 @@
     </div>
     <div class="row g-2 mt-1">
         {% for seed in seeds %}
-        <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="col-lg-3 col-md-4 col-sm-6 overflow-auto">
             <a href="{% url 'seed_detail' seed.id %}">
-                <div class="seed_card border" >
-                <img src="{{ seed.seedImg.url }}" class="card-img-top" alt="...">
-                <div class="">
-                    <p class="card-text">{{ seed.seedName }}</p>
-                    <p class="card-text">{{ seed.author }}</p>
+                <div class="seed_card border rounded" >
+                <img src="{{ seed.seedImg.url }}" class="card-img-top img-thumbnail" alt="...">
+                <div class="text-center">
+                    <p class="card-text h4">{{ seed.seedName }}</p>
+                    <p class="card-text">by {{ seed.author }}</p>
                 </div>
                 </div>
             </a>
