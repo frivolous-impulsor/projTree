@@ -25,30 +25,23 @@
 <body class="container-fluid row" style="font-family: Mulish; ">
   <div class="navPart col-lg-2 col-sm-2 d-none d-sm-block border ">
     <nav class="navbar navbar-expand-lg navbar-light position-fixed">
-      <div class="container-fluid d-flex flex-column overflow-hidden">
+      <div class=" d-flex flex-column overflow-hidden">
         <a class="navbar-brand d-none d-md-block" href="{% url 'seed_list' %} "><strong>projTree</strong></a>
         <div class="my-5" id="navbarNav ">
           <ul class="navbar-nav d-flex flex-column">
-            <li class="nav-item">
+            <li class="nav-item btn btn-outline-success my-1">
               <a class="nav-link active d-flex" aria-current="page" href="{% url 'seed_list' %} ">
                 <img src="{% static 'seed/seed_list_icon.svg' %}" alt="alt">
                 <p class="d-none d-md-block my-auto mx-1">Seeds</p>
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item btn btn-outline-success my-1">
               <a class="nav-link active d-flex" aria-current="page" href="{% url 'seed_list' %} ">
                 <img src="{% static 'seed/seed_list_icon.svg' %}" alt="alt">
                 <p class="d-none d-md-block m-auto mx-1">Seeds</p>
               </a>
             </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                Pricing</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
           </ul>
         </div>
       </div>
@@ -57,15 +50,11 @@
   <div class="contentPart col-lg-8 col-sm-10 col-sm-10 border">
     {% block content %}
     {% endblock %}
-    
+
   </div>
   <div class="infoPart col-lg-2 col-sm-0 border">
-    <div class="search border container my-2 rounded">
-      <form class="d-flex flex-column row g-2 my-2" method="POST" action="{% url 'search_seed' %} "> {% csrf_token %}
-        <input class="form-control" type="search" placeholder="attribute" aria-label="Search" name="searched">
-        <button class="btn btn-outline-secondary" type="submit">Search</button>
-      </form>
-    </div>
+    {% block info %}
+    {% endblock %}
     {% if messages %}
     <div class="message">
       {% for message in messages %}
@@ -75,7 +64,7 @@
       {% endfor %}
     </div>
     {% endif %}
-    
+
   </div>
 
   </div>
