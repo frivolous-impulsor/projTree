@@ -12,7 +12,7 @@
                 <div class="seed_card border rounded">
                     <img src="{{ seed.seedImg.url }}" class="card-img-top img-thumbnail img-fluid" alt="...">
                     <div class="text-center">
-                        <p class="card-text h4">{{ seed.seedName }}</p>
+                        <p class="card-text h4 text-decoration-none">{{ seed.seedName }}</p>
                         <p class="card-text">by {{ seed.author }}</p>
                     </div>
                 </div>
@@ -25,7 +25,6 @@
 </div>
 
 {% endblock %}
-
 {% block info %}
 <div class="search border container my-2 rounded">
     <form class="d-flex flex-column row g-2 my-2" method="POST" action="{% url 'search_seed' %} "> {% csrf_token %}
