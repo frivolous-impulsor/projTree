@@ -1,23 +1,43 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
-    <div class="row">
-        <h3>Steps for {{steps.0.seed.seedName}} </h3>
-        {% for step in steps %}
-        <div class="col-sm border border-primary">
-            <a href=""><img style="width: 10rem;" class="img_fluid rounded mx-auto d-block " src="{{ step.img.url }}" alt="{{ step.seed.seedName }} image"></a>
-            <p>
-                {{step.content}}
-            </p>
-        </div>
-        {% if user == steps.0.seed.author %}
-        <a href="{% url 'step_update' seedName=view.kwargs.seedName pk=step.id %} ">Edit</a>
-        <a href="{% url 'step_delete' seedName=view.kwargs.seedName pk=step.id %} ">Delete</a>
-        {% endif %}
-        {% endfor %}
-        {% if user == steps.0.seed.author %}
-        <a href="{% url 'step_create' view.kwargs.seedName %} ">append New Step</a>
-        {% endif %}
-
+<div class="heading border-bottom sticky-top bg-white text-center ">
+    <a class="position-absolute start-0" href="{%url 'seed_detail' steps.0.seed.id %} "> <img src="{% static 'seed/arrow_back_icon.svg' %}"
+            alt="Last Page"></a>
+    <p class="my-3">Steps for {{steps.0.seed.seedName}}</p>
+</div>
+<div class="container-fluid row">
+    {% for step in steps %}
+    <div class="row seed m-1 p-1 border rounded shadow">
+        <img class="col-lg-5 col-md-5 col" src="{{ step.img.url }}" alt="img of {{seed.seedName}}"
+            style="object-fit: cover">
+        <p class="col-lg-7 col-md-6 col"> {{step.content}} </p>
     </div>
+
+
+    {% if user == steps.0.seed.author %}
+    <div class="edit_buttons d-none">
+        <a class="float-start" href="{% url 'step_update' seedName=view.kwargs.seedName pk=step.id %} ">Edit</a>
+        <a class="float-end" href="{% url 'step_delete' seedName=view.kwargs.seedName pk=step.id %} ">Delete</a>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+</div>
     
+{% endblock %}
+
+{% block info %}
+<div class="container my-1 row d-flex">
+    <div class="d-grid gap-2">
+        {% if steps.0.seed.author == user %}
+        <a class="col-12 p-1 m-1 btn btn-outline-primary d-flex text-center" href=" {% url 'step_create' view.kwargs.seedName %} ">
+            <img src="{% static 'seed/add_icon.svg' %} " alt="">
+            <p class="px-auto mx-auto my-1">Append Anothor Step</p>
+        </a>
+        {% endif %}
+    </div>
+
+</div>
+
 {% endblock %}
