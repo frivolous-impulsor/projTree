@@ -1,16 +1,20 @@
 {% extends "base.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
-{% block content %}
-<div class="heading border-bottom sticky-top bg-white text-center ">
-    <a class="position-absolute start-0" href="{%url 'seed_list'%} "> <img src="{% static 'seed/arrow_back_icon.svg' %}"
-            alt="Last Page"> </a>
-    <p class="my-3">{{seed.seedName}}</p>
-</div>
 
-<div class="row container p-3">
+{% block href %} 
+<a class="position-absolute start-0" href="{% url 'seed_list' %} "> <img src="{% static 'seed/arrow_back_icon.svg' %}" alt="Last Page"></a>
+{% endblock %}
+
+{% block head %}
+{{seed.seedName}}
+{% endblock %}
+
+{% block content %}
+
+<div class="row container p-3 mx-auto">
     <div class="row seed m-1 p-1 border rounded shadow">
-        <img class="col-lg-5 col-md-5 col" src="{{seed.seedImg.url}}" alt="img of {{seed.seedName}}"
+        <img class="col-lg-5 col-md-5 col img-thumbnail" src="{{seed.seedImg.url}}" alt="img of {{seed.seedName}}"
             style="object-fit: cover">
         <p class="col-lg-7 col-md-6 col"> {{seed.content}} </p>
     </div>

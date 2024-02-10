@@ -1,19 +1,24 @@
 {% extends "base.html" %}
-{% block content %}
 
+
+
+{% block head %}
+Seed List
+{% endblock %}
+
+
+
+{% block content %}
 <div>
-    <div class="heading border-bottom sticky-top text-center bg-white">
-        <p class="my-3">Seed List</p>
-    </div>
-    <div class="row g-2 mt-1">
+    <div class="row g-2 mt-1 mx-1">
         {% for seed in seeds %}
         <div class="col-lg-3 col-md-4 col-sm-6 overflow-auto">
             <a href="{% url 'seed_detail' seed.id %}">
-                <div class="seed_card border rounded">
+                <div class="seed_card border rounded shadow-sm my-2">
                     <img src="{{ seed.seedImg.url }}" class="card-img-top img-thumbnail img-fluid" alt="...">
                     <div class="text-center">
                         <p class="card-text h5 text-decoration-none">{{ seed.seedName }}</p>
-                        <p class="card-text">by {{ seed.author }}</p>
+                        <a class="card-text" href="{% url 'user_seeds' seed.author %} ">By {{ seed.author }}</a>
                     </div>
                 </div>
             </a>

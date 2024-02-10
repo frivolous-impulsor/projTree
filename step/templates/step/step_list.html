@@ -1,14 +1,20 @@
 {% extends "base.html" %}
 {% load static %}
+{% block href %}
+<a class="position-absolute start-0" href="{%url 'seed_detail' steps.0.seed.id %} "> <img src="{% static 'seed/arrow_back_icon.svg' %}"></a>
+{% endblock %}
+
+{% block head %}
+Steps for {{steps.0.seed.seedName}}
+{% endblock %}
+
 {% block content %}
-<div class="heading border-bottom sticky-top bg-white text-center ">
-    <a class="position-absolute start-0" href="{%url 'seed_detail' steps.0.seed.id %} "> <img src="{% static 'seed/arrow_back_icon.svg' %}"
-            alt="Last Page"></a>
-    <p class="my-3">Steps for {{steps.0.seed.seedName}}</p>
-</div>
-<div class="container-fluid row">
+
+
+
+<div class="container-fluid row mx-auto">
     {% for step in steps %}
-    <div class="row seed m-1 p-1 border rounded shadow">
+    <div class="row seed m-1 p-1 border rounded shadow mt-3">
         <img class="col-lg-5 col-md-5 col" src="{{ step.img.url }}" alt="img of {{seed.seedName}}"
             style="object-fit: cover">
         <p class="col-lg-7 col-md-6 col"> {{step.content}} </p>
@@ -39,5 +45,4 @@
     </div>
 
 </div>
-
 {% endblock %}
