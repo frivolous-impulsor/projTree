@@ -25,11 +25,11 @@
 
 <body>
   <div class="container-fluid row mx-0" style="font-family: DM Sans; ">
-    <div class="navPart col-lg-2 col-md-2 col-sm-2 d-none d-sm-block">
+    <div class="navPart col-lg-2 col-md-2 col-sm-2 d-none d-sm-block bg-light">
       <nav class="navbar navbar-expand-lg navbar-light position-fixed">
         <div class=" d-flex flex-column overflow-hidden">
           <a class="navbar-brand d-none d-md-block" href="{% url 'seed_list' %} "><strong>projTree</strong></a>
-          <div class="my-5" id="navbarNav ">
+          <div class="my-5 p-1 bg-white rounded border" id="navbarNav">
             <ul class="navbar-nav d-flex flex-column">
               <li class="nav-item btn btn-outline-success my-1">
                 <a class="nav-link active d-flex" aria-current="page" href="{% url 'seed_list' %} ">
@@ -49,8 +49,8 @@
         </div>
       </nav>
     </div>
-    <div class="contentPart col-lg-8 col-md-10 col-sm-10 border-start border-end">
-      <div class="heading border-bottom sticky-top text-center bg-white"
+    <div class="contentPart col-lg-8 col-md-10 col-sm-10 border-start border-end bg-light">
+      <div class="heading border-bottom sticky-top text-center bg-light"
         style="box-shadow: 0px 15px 10px -15px; margin: auto; ">
         {% block href %} {% endblock %}
         <p class="my-3"> {% block head %} {% endblock %} </p>

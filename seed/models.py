@@ -24,7 +24,7 @@ Months = [
 class Seed(models.Model):
     author = models.ForeignKey(User, on_delete=models.DO_NOTHING) #not on_delete
     date_posted = models.DateField(default = timezone.now)
-    seedName = models.CharField(max_length=50, unique=True)
+    seedName = models.CharField(max_length=50)
     content = models.TextField()
     seedImg = ResizedImageField(size=[500,300], upload_to='seed_pics', default='default_seed_pic.PNG')
     obtainTime = models.CharField(max_length=3, choices=Months, default="Jan")

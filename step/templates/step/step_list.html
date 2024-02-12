@@ -15,16 +15,16 @@ Steps for {{steps.0.seed.seedName}}
 <div class="container-fluid row mx-auto">
     {% for step in steps %}
     <div class="row seed m-1 p-1 border rounded shadow mt-3">
-        <img class="col-lg-5 col-md-5 col" src="{{ step.img.url }}" alt="img of {{seed.seedName}}"
-            style="object-fit: cover">
+        <img class="col-lg-5 col-md-5 col img-thumbnail" src="{{ step.img.url }}" alt="img of {{seed.seedName}}"
+            style="object-fit: cover;">
         <p class="col-lg-7 col-md-6 col"> {{step.content}} </p>
     </div>
 
 
     {% if user == steps.0.seed.author %}
     <div class="edit_buttons d-none">
-        <a class="float-start" href="{% url 'step_update' seedName=view.kwargs.seedName pk=step.id %} ">Edit</a>
-        <a class="float-end" href="{% url 'step_delete' seedName=view.kwargs.seedName pk=step.id %} ">Delete</a>
+        <a class="float-start" href="{% url 'step_update' seed_id=step.seed.id pk=step.id %} ">Edit</a>
+        <a class="float-end" href="{% url 'step_delete' seed_id=step.seed.id pk=step.id %} ">Delete</a>
     </div>
     {% endif %}
     {% endfor %}
@@ -37,9 +37,9 @@ Steps for {{steps.0.seed.seedName}}
 <div class="container my-1 row d-flex">
     <div class="d-grid gap-2">
         {% if steps.0.seed.author == user %}
-        <a class="col-12 p-1 m-1 btn btn-outline-primary d-flex text-center" href=" {% url 'step_create' view.kwargs.seedName %} ">
+        <a class="col-12 p-1 m-1 btn btn-outline-primary d-flex text-center" href=" {% url 'step_create' steps.0.seed.id %} ">
             <img src="{% static 'seed/add_icon.svg' %} " alt="">
-            <p class="px-auto mx-auto my-1">Append Anothor Step</p>
+            <p class="px-1 mx-1 my-1">Add Step</p>
         </a>
         {% endif %}
     </div>

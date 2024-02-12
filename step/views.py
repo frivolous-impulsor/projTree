@@ -15,15 +15,15 @@ class StepListView(ListView):
     template_name = 'step_list.html'
     context_object_name = 'steps'
     def get_queryset(self) -> QuerySet[Any]:
-        target_seed = get_object_or_404(Seed, seedName = self.kwargs.get('seedName'))
+        target_seed = get_object_or_404(Seed, id = self.kwargs.get('seed_id'))
         return Step.objects.filter(seed = target_seed)
     
 class StepCreateView(LoginRequiredMixin, CreateView):
     model = Step
     fields = ['img', 'title', 'content']
     def form_valid(self, form):
-        target_seedName = self.kwargs['seedName']
-        seed = Seed.objects.get(seedName = target_seedName)
+        target_seed_id = self.kwargs['seed_id']
+        seed = Seed.objects.get(id = target_seed_id)
         form.instance.seed = seed
         return super().form_valid(form)
     def get_success_url(self):
@@ -39,13 +39,13 @@ class StepUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     
     def get_success_url(self):
         # Pass seedName to get_absolute_url
-        return self.object.get_absolute_url(seedName=self.kwargs['seedName'])
+        return self.object.get_absolute_url(id=self.kwargs['seed_id'])
     
 class StepDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Step
     def get_success_url(self):
         # Pass seedName to get_absolute_url
-        return self.object.get_absolute_url(seedName=self.kwargs['seedName'])
+        return self.object.get_absolute_url(id=self.kwargs['seed_id'])
     def test_func(self) -> bool | None: #ensure current user only edits their posts
         step = self.get_object()
         return step.seed.author == self.request.user
