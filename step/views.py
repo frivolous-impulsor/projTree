@@ -22,13 +22,11 @@ class StepCreateView(LoginRequiredMixin, CreateView):
     model = Step
     fields = ['img', 'title', 'content']
     def form_valid(self, form):
-        target_seed_id = self.kwargs['seed_id']
-        seed = Seed.objects.get(id = target_seed_id)
-        form.instance.seed = seed
+        form.instance.seed.author = self.request.user
         return super().form_valid(form)
     def get_success_url(self):
         # Pass seedName to get_absolute_url
-        return self.object.get_absolute_url(seedName=self.kwargs['seedName'])
+        return self.object.get_absolute_url(id=self.kwargs['seed_id'])
 
 class StepUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Step
