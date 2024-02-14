@@ -12,5 +12,5 @@ class Step(models.Model):
     def __str__(self) -> str:
         return f'{self.seed.seedName} step'
     
-    def get_absolute_url(self, seedName):
-        return reverse("step_list", kwargs={"seedName": seedName})
+    def get_absolute_url(self, id):
+        return reverse("step_list", kwargs={"seed_id": id})
