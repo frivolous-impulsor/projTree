@@ -13,12 +13,12 @@
 {% block content %}
 
 <div class="row container p-3 mx-auto">
-    <div class="row seed m-1 p-1 border rounded shadow">
+    <div class="row seed m-1 p-1 rounded shadow bg-light">
         <img class="col-lg-5 col-md-5 col img-thumbnail" src="{{seed.seedImg.url}}" alt="img of {{seed.seedName}}"
             style="object-fit: cover">
         <p class="col-lg-7 col-md-6 col"> {{seed.content}} </p>
     </div>
-    <div class="row seed m-1 p-1 border rounded shadow mt-3">
+    <div class="row seed m-1 p-1 shadow bg-light mt-3">
         <img class="col-lg-5 col-md-5 col" src="{{seed.plantImg.url}}" alt="img of plant" style="object-fit: cover">
         <p class="col-lg-7 col-md-6 col">{{seed.obtainTime}}</p>
     </div>
