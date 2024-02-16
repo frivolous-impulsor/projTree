@@ -24,12 +24,13 @@ class StepTests(TestCase):
     
     def test_step_create_view(self):
         seed_id = self.seed.id
-        response = self.client.post(reverse('step_create', kwargs={'seed_id':seed_id}), {
+        response = self.client.post(reverse('step_create', kwargs={'seed_id':10000}), {
             'title' : 'create title',
             'content' : 'create content',
             'seed' : self.seed
         })
         self.assertEqual(response.status_code, 302)
+        
 
     def test_step_update_view(self):
         seed_id = self.seed.id

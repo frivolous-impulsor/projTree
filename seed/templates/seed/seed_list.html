@@ -14,11 +14,11 @@ Seed List
         {% for seed in seeds %}
         <div class="col-lg-3 col-md-4 col-sm-6 overflow-auto">
             <a href="{% url 'seed_detail' seed.id %}">
-                <div class="seed_card border rounded shadow-sm my-2">
+                <div class="seed_card border rounded shadow-sm my-2 bg-white">
                     <img src="{{ seed.seedImg.url }}" class="card-img-top img-thumbnail img-fluid" alt="...">
                     <div class="text-center">
-                        <p class="card-text h5 text-decoration-none">{{ seed.seedName }}</p>
-                        <a class="card-text" href="{% url 'user_seeds' seed.author %} ">By {{ seed.author }}</a>
+                        <p class=" h6 text-decoration-none">{{ seed.seedName }}</p>
+                        <a class="p-4" href="{% url 'user_seeds' seed.author %} ">By {{ seed.author }}</a>
                     </div>
                 </div>
             </a>

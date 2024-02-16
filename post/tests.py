@@ -42,12 +42,12 @@ class PostTests(TestCase):
         self.assertTemplateUsed(response, 'post/post_detail.html')
 
     def test_post_create(self):
-        response = self.client.post(reverse('post_create'), {
+        self.client.post(reverse('post_create'), {
             'title': 'new title',
             'content': 'new content',
             'author': self.user
         })
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(Post.objects.last().title, 'new title')
 
     def test_post_update(self):
         response = self.client.post(reverse('post_update', args='1'), {
