@@ -3,7 +3,7 @@
 
 
 {% block head %}
-Seed List
+Select Your Seed
 {% endblock %}
 
 
@@ -34,7 +34,7 @@ Seed List
 <div class="search shadow-sm bg-white py-2 sticky-top container my-2 rounded">
     <form class="d-flex flex-column row g-2 my-2" method="POST" action="{% url 'search_seed' %} "> {% csrf_token %}
         <input class="form-control" type="search" placeholder="attribute" aria-label="Search" name="searched">
-        <button class="btn btn-outline-secondary" type="submit">Search</button>
+        <button class="btn btn-outline-primary" type="submit">Search</button>
     </form>
 </div>
 {% endblock %}

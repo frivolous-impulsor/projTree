@@ -6,8 +6,14 @@ from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Seed
 from django.urls import reverse_lazy
+from users.models import User
 
 # Create your views here.
+def homeView(request):
+    seed_num = Seed.objects.count()
+    user_num = User.objects.count()
+    return render(request, "seed/home.html", {"seed_num": seed_num, "user_num": user_num})
+
 class SeedsListView(ListView):
     model = Seed
     context_object_name = 'seeds'

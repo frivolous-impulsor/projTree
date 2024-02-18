@@ -1,0 +1,72 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inria+Serif&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,600&family=Inria+Serif&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static 'seed/css/style.css' %}">
+  <title>treeProj</title>
+</head>
+
+<body class="bg-light">
+  <div class="container-fluid row mx-0 d-flex flex-column" style="font-family: DM Sans;">
+    <div class="statesPart px-1 mt-3 ms-4">
+      <div class="d-flex flex-column bg-light px-2 rounded border shadow px-4 py-2 bg-white" style="width: fit-content;">
+        <div class="h3">Till This Moment</div>
+        <div class="h5">{{user_num}} people participated</div>
+        <div class="h5">{{seed_num}} seeds archived</div>
+      </div>
+    </div>
+
+
+    <div class="buttonPart  ">
+      <div class="d-flex justify-content-center position-absolute bottom-0 start-50 translate-middle">
+        <div class="d-flex flex-column text-center" style="width: max-content;">
+          <div class="btn shadow rounded bg-white p-3">
+            <a class="h3" href="{% url 'seed_list' %} ">I Want To Plant Something, How?</a>
+          </div>
+          <div class="btn shadow mt-3 bg-white p-3">
+            <a class="h3" href="">About This Project</a>
+          </div>
+
+        </div>
+        
+
+      </div>
+    </div>
+
+  </div>
+
+  </div>
+
+
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

@@ -1,8 +1,9 @@
 from django.urls import path
-from .views import SeedsListView, SeedDetailView, SeedCreateView, SeedUpdateView,SeedDeleteView, UserPostedSeeds, search_seed
+from .views import homeView, SeedsListView, SeedDetailView, SeedCreateView, SeedUpdateView,SeedDeleteView, UserPostedSeeds, search_seed
 
 urlpatterns = [
-    path('', SeedsListView.as_view(), name='seed_list'),
+    path('', homeView, name='home'),
+    path('seed_list', SeedsListView.as_view(), name='seed_list'),
     path('<int:pk>/', SeedDetailView.as_view(), name='seed_detail'),
     path('create/', SeedCreateView.as_view(), name='seed_create'),
     path('<int:pk>/update/', SeedUpdateView.as_view(), name='seed_update'),
