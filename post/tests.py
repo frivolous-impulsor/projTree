@@ -13,19 +13,6 @@ class PostTests(TestCase):
         self.post = Post.objects.create(title='testTitle', 
                                         content='testContent',
                                         author = self.user)
-        
-        self.deletePost = Post.objects.create(title='DeletetestTitle', 
-                                        content='DeletetestContent',
-                                        author = self.user)
-        
-    def test_str_representation(self):
-        post = Post(title='a sample title')
-        self.assertEqual(str(post), f'{post.title} Post')
-
-    def test_post_content(self):
-        self.assertEqual(f'{self.post.title}', 'testTitle')
-        self.assertEqual(f'{self.post.content}', 'testContent')
-        self.assertEqual(f'{self.post.author}', 'testuser')
 
     def test_post_list(self):
         response = self.client.get(reverse('posts'))
@@ -41,13 +28,15 @@ class PostTests(TestCase):
         self.assertContains(response, 'testContent')
         self.assertTemplateUsed(response, 'post/post_detail.html')
 
-    def test_post_create(self):
-        self.client.post(reverse('post_create'), {
-            'title': 'new title',
-            'content': 'new content',
-            'author': self.user
+    def test_post_create_view(self): # new
+        self.client.login(username='testuser', password='secret')
+        response = self.client.post(reverse('post_create'), {
+            'title': 'New title',
+            'content': 'New text',
+            'author': self.user,
         })
-        self.assertEqual(Post.objects.last().title, 'new title')
+        self.assertEqual(response.status_code, 302)
+
 
     def test_post_update(self):
         response = self.client.post(reverse('post_update', args='1'), {

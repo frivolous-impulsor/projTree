@@ -31,6 +31,11 @@ Select Your Seed
 
 {% endblock %}
 {% block info %}
+
+{% if user.is_authenticated %}
+<p>hello {{user.username}} </p>
+{% endif %}
+
 <div class="search shadow-sm bg-white py-2 sticky-top container my-2 rounded">
     <form class="d-flex flex-column row g-2 my-2" method="POST" action="{% url 'search_seed' %} "> {% csrf_token %}
         <input class="form-control" type="search" placeholder="attribute" aria-label="Search" name="searched">

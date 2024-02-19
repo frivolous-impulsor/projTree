@@ -39,9 +39,15 @@
             </a>
           </div>
           <div class="col-12 mb-2 shadow-sm p-3 rounded bg-white" style="width: fit-content;">
-            <a class="d-flex justify-content-center" aria-current="page" href="{% url 'seed_list' %} ">
+            <a class="d-flex justify-content-center" aria-current="page" href="{% url 'login' %} ">
               <img class="mx-1" src="{% static 'seed/seed_list_icon.svg' %}" alt="alt">
-              <p class="d-none d-md-block my-auto">Seeds</p>
+              <p class="d-none d-md-block my-auto">login</p>
+            </a>
+          </div>
+          <div class="col-12 mb-2 shadow-sm p-3 rounded bg-white" style="width: fit-content;">
+            <a class="d-flex justify-content-center" aria-current="page" href="{% url 'seed_create' %} ">
+              <img class="mx-1" src="{% static 'seed/seed_list_icon.svg' %}" alt="alt">
+              <p class="d-none d-md-block my-auto">create seed</p>
             </a>
           </div>
         </div>

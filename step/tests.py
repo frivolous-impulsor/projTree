@@ -24,7 +24,7 @@ class StepTests(TestCase):
     
     def test_step_create_view(self):
         seed_id = self.seed.id
-        response = self.client.post(reverse('step_create', kwargs={'seed_id':10000}), {
+        response = self.client.post(reverse('step_create', kwargs={'seed_id':seed_id}), {
             'title' : 'create title',
             'content' : 'create content',
             'seed' : self.seed
