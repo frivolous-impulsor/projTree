@@ -27,9 +27,9 @@
   <div class="container-fluid row mx-0 d-flex flex-column" style="font-family: DM Sans;">
     <div class="statesPart px-1 mt-3 ms-4">
       <div class="d-flex flex-column bg-light px-2 rounded border shadow px-4 py-2 bg-white" style="width: fit-content;">
-        <div class="h3">Till This Moment</div>
-        <div class="h5">{{user_num}} people participated</div>
-        <div class="h5">{{seed_num}} seeds archived</div>
+        <div class="h3 border-bottom">Till This Moment</div>
+        <div class="h6">{{user_num}} people participated</div>
+        <div class="h6">{{seed_num}} seeds archived</div>
       </div>
     </div>
 
@@ -37,12 +37,16 @@
     <div class="buttonPart  ">
       <div class="d-flex justify-content-center position-absolute bottom-0 start-50 translate-middle">
         <div class="d-flex flex-column text-center" style="width: max-content;">
-          <div class="btn shadow rounded bg-white p-3">
-            <a class="h3" href="{% url 'seed_list' %} ">I Want To Plant Something, How?</a>
+          <div class="btn btn-outline-success py-2 my-1">
+            <a class="h3 text-dark" href="{% url 'seed_list' %} ">I Want To Plant Something, How?</a>
           </div>
-          <div class="btn shadow mt-3 bg-white p-3">
-            <a class="h3" href="">About This Project</a>
+          <div class="btn btn-outline-success py-2 my-1">
+            <a class="h3 text-dark" href="{% url 'posts' %} ">I've Some Question About Planting</a>
           </div>
+          <div class="btn btn-outline-success py-2 my-1">
+            <a class="h3 text-dark" href="">About This Project</a>
+          </div>
+
 
         </div>
         
