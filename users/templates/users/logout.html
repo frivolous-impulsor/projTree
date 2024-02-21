@@ -3,12 +3,13 @@
 {% block content %}
 
     <div>
-        <h1>You logged out</h1>
+        <h1>You Logged Out (:P)</h1>
 
         <form >
-            <small>
-                Wanna Log In?
-                <a href="{% url 'login' %}" class="btn">Log In</a>
+            <small class="d-flex">
+                <p class="my-auto me-2">Wanna log back in?</p>
+                
+                <a href="{% url 'login' %}" class="btn btn-outline-primary">Log In</a>
             </small>
         </form>
     </div>

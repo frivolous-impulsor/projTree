@@ -27,32 +27,62 @@
 
 <body class="bg-light">
   <div class="container-fluid row mx-0 bg-light" style="font-family: DM Sans; ">
-    <div id="app">
-      <!-- Vue will bind to this element -->
-      <p>{{ message }}</p>
-    </div>
+
     <div class="navPart col-lg-2 col-md-2 col-sm-2 d-none d-sm-block bg-light border-end">
       <div class="d-flex flex-column sticky-top">
         <div class="logo justify-content-center align-content-center mb-5">
           <a class="text-body navbar-brand d-none d-md-block text-center" href="{% url 'home' %} "><strong>projTree</strong></a>
         </div>
         <div class="navs row justify-content-center mx-1">
+
           <div class="col-12 mb-2 shadow-sm py-3 rounded bg-white " >
             <a class="d-flex justify-content-center" aria-current="page" href="{% url 'seed_list' %} ">
-              <img class="mx-1" src="{% static 'seed/seed_list_icon.svg' %}" alt="alt">
+              <img class="mx-1" src="{% static 'seed/icons/seed_list_icon.svg' %}" alt="alt">
               <p class="d-none d-md-block my-auto">Seeds</p>
             </a>
           </div>
-          <div class="col-12 mb-2 shadow-sm p-3 rounded bg-white" >
-            <a class="d-flex justify-content-center" aria-current="page" href="{% url 'login' %} ">
-              <img class="mx-1" src="{% static 'seed/seed_list_icon.svg' %}" alt="alt">
-              <p class="d-none d-md-block my-auto">login</p>
+
+          <div class="col-12 mb-2 shadow-sm py-3 rounded bg-white " >
+            <a class="d-flex justify-content-center" aria-current="page" href="{% url 'posts' %} ">
+              <img class="mx-1" src="{% static 'seed/icons/posts_icon.svg' %}" alt="alt">
+              <p class="d-none d-md-block my-auto">Posts</p>
             </a>
           </div>
+          {% if user.is_authenticated %}
+          <div class="col-12 mb-2 shadow-sm py-3 rounded bg-white " >
+            <a class="d-flex justify-content-center" aria-current="page" href="{% url 'profile' %} ">
+              <img class="mx-1" src="{% static 'seed/icons/profile_icon.svg' %}" alt="alt">
+              <p class="d-none d-md-block my-auto">Profile</p>
+            </a>
+          </div>
+
           <div class="col-12 mb-2 shadow-sm p-3 rounded bg-white" >
-            <a class="d-flex justify-content-center" aria-current="page" href="{% url 'seed_create' %} ">
-              <img class="mx-1" src="{% static 'seed/seed_list_icon.svg' %}" alt="alt">
-              <p class="d-none d-md-block my-auto">create</p>
+            <a class="d-flex justify-content-center" aria-current="page" href="{% url 'logout' %} ">
+              <img class="mx-1" src="{% static 'seed/icons/seed_list_icon.svg' %}" alt="alt">
+              <p class="d-none d-md-block my-auto">Logout</p>
+            </a>
+          </div>
+          
+          {% else %}
+          <div class="col-12 mb-2 shadow-sm p-3 rounded bg-white" >
+            <a class="d-flex justify-content-center" aria-current="page" href="{% url 'login' %} ">
+              <img class="mx-1" src="{% static 'seed/icons/login_icon.svg' %}" alt="alt">
+              <p class="d-none d-md-block my-auto">Login</p>
+            </a>
+          </div>
+
+          <div class="col-12 mb-2 shadow-sm p-3 rounded bg-white" >
+            <a class="d-flex justify-content-center" aria-current="page" href="{% url 'register' %} ">
+              <img class="mx-1" src="{% static 'seed/icons/register_icon.svg' %}" alt="alt">
+              <p class="d-none d-md-block my-auto">Register</p>
+            </a>
+          </div>
+          {% endif %}
+
+          <div class="col-12 mb-2 shadow-sm p-3 rounded bg-white" >
+            <a class="d-flex justify-content-center" aria-current="page" href="">
+              <img class="mx-1" src="{% static 'seed/icons/about_icon.svg' %}" alt="alt">
+              <p class="d-none d-md-block my-auto">about</p>
             </a>
           </div>
         </div>
@@ -120,16 +150,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
-
-
-  <script>
-    new Vue({
-        el: '#app', // Mount Vue to #app element
-        data: {
-            message: 'Hello Vue.js!'
-        }
-    });
-  </script>
 
 
 </body>
