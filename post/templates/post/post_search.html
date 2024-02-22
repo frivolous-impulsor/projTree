@@ -1,25 +1,32 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 
-
-{% block head %}
-Posts
+{% block href %} 
+<a class="position-absolute start-0" href="{% url 'posts' %} "> <img src="{% static 'seed/icons/arrow_back_icon.svg' %}" alt="Last Page"></a>
 {% endblock %}
 
+{% block head %}
+All Posts Related to &quot;{{searched}}&quot;
+{% endblock %}
 
 {% block content %}
-<div class="d-flex flex-column">
-    {% for post in posts %}
-    <div class="rounded border p-2 mb-2 shadow-sm">
-        <a href="{%url 'post_detail' post.id%}">{{ post.title }}</a>
-        <a class="text-muted" href="{%url 'user_posts' post.author.username%}">-{{ post.author }}</a>
-        <p class="border-top" >{{post.content|truncatechars:100}} </p>
+
+{% if searched %}
+    <div class="row g-2 mt-1">
+
+        {% for post in posts %}
+        <div class="rounded border p-2 mb-2 shadow-sm">
+            <a href="{%url 'post_detail' post.id%}">{{ post.title }}</a>
+            <a class="text-muted" href="{%url 'user_posts' post.author.username%}">-{{ post.author }}</a>
+            <p class="border-top" >{{post.content|truncatechars:100}} </p>
+        </div>
+        {% endfor %}
     </div>
 
-    
-    {% endfor %}
-
-</div>
+{% else %}
+<p>Say something baby, don't left my heart blank ;(</p>
+{% endif %}
 {% endblock %}
 
 
@@ -43,3 +50,6 @@ Posts
 </div>
 
 {% endblock %}
+
+
+

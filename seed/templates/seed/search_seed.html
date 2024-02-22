@@ -3,35 +3,62 @@
 {% load crispy_forms_tags %}
 
 {% block href %} 
-<a class="position-absolute start-0" href="{% url 'seed_list' %} "> <img src="{% static 'seed/arrow_back_icon.svg' %}" alt="Last Page"></a>
+<a class="position-absolute start-0" href="{% url 'seed_list' %} "> <img src="{% static 'seed/icons/arrow_back_icon.svg' %}" alt="Last Page"></a>
 {% endblock %}
 
 {% block head %}
-Search Result For &quot;{{searched}}&quot;
+All Seeds Related to &quot;{{searched}}&quot;
 {% endblock %}
 
 {% block content %}
 
 {% if searched %}
-    <div class="row g-2 mt-1">
+<div>
+    <div class="row g-2 mt-1 mx-1">
         {% for seed in seeds %}
-        <div class="col-lg-3 col-md-4 col-sm-6 align-items-center justify-content-center">
+        <div class="col-lg-3 col-md-4 col-sm-6 ">
             <a href="{% url 'seed_detail' seed.id %}">
-                <div class="seed_card border" >
-                <img src="{{ seed.seedImg.url }}" class="card-img-top" alt="...">
-                <div class="">
-                    <p class="card-text">{{ seed.seedName }}</p>
-                    <p class="card-text">{{ seed.author }}</p>
-                </div>
+                <div class="seed_card rounded shadow-sm my-2 bg-white">
+                    <img src="{{ seed.seedImg.url }}" class="card-img-top img-thumbnail img-fluid" alt="...">
+                    <div class="text-center">
+                        <p class=" h6 text-decoration-none">{{ seed.seedName }}</p>
+                        <a class="p-4" href="{% url 'user_seeds' seed.author %} ">By {{ seed.author }}</a>
+                    </div>
                 </div>
             </a>
         </div>
         {% endfor %}
     </div>
 
-    {% else %}
-        Not Valid
-    {% endif %}
+
+</div>
+
+{% else %}
+<p>Say something baby, don't left my heart blank ;(</p>
+
+{% endif %}
+{% endblock %}
+
+
+
+{% block info %}
+
+{% if user.is_authenticated %}
+<p>hello {{user.username}} </p>
+{% endif %}
+
+<div class="search shadow-sm bg-white py-2 px-3 sticky-top container my-2 rounded">
+    <form class="d-flex flex-column row g-2 my-2" method="POST" action="{% url 'search_seed' %} "> {% csrf_token %}
+        <input class="form-control" type="search" placeholder="attribute" aria-label="Search" name="searched">
+        <button class="btn btn-outline-primary" type="submit">Search</button>
+    </form>
+
+    <a class="mt-4 col-12 p-1 m-1 btn btn-outline-primary d-flex text-center mx-auto" href=" {% url 'seed_create' %} ">
+        <img src="{% static 'seed/icons/add_icon.svg' %} " alt="">
+        <p class="px-1 mx-1 my-1">Seed</p>
+    </a>
+</div>
+
 {% endblock %}
 
 

@@ -53,4 +53,11 @@ class UserPostListView(ListView):
     def get_queryset(self) -> QuerySet[Any]:
         user = get_object_or_404(User, username = self.kwargs.get('username'))
         return Post.objects.filter(author = user).order_by('-date_posted')
-    
+
+def search_post(request):
+    if request.method == 'POST':
+        searched = request.POST['searched']
+        posts = Post.objects.filter(title__contains = searched) | Post.objects.filter(content__contains = searched)
+        return render(request, 'post/post_search.html', {'searched':searched, 'posts': posts})
+    else:
+        return render(request, 'post/post_search.html', {})
