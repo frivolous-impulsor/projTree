@@ -4,6 +4,7 @@ from .forms import UserRegisterForm
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from .forms import UserUpdateForm, ProfileUpdateForm
+from .models import Profile
 # Create your views here.
 def register(request):
     if request.method == 'POST':
@@ -22,7 +23,7 @@ def UserLogout(request):
     return render(request, 'users/logout.html')
 
 @login_required
-def profile(request):
+def profile_update(request):
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST, instance = request.user)
         p_form = ProfileUpdateForm(request.POST, request.FILES, instance = request.user.profile)
@@ -30,9 +31,15 @@ def profile(request):
             u_form.save()
             p_form.save()
             messages.success(request, f'Profile of Acccount {request.user.username} is updated')
+            return redirect('profile')
     else:
         u_form = UserUpdateForm(instance = request.user)
         p_form = ProfileUpdateForm(instance = request.user.profile)
     
     context = {'u_form': u_form, 'p_form': p_form}
-    return render(request, 'users/profile.html', context)
+    return render(request, 'users/profile_form.html', context)
+
+@login_required
+def profile_view(request):
+    profile = Profile.objects.filter(user = request.user).first()
+    return render(request, 'users/profile.html', {'profile': profile})

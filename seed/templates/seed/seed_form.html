@@ -1,5 +1,16 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block href %}
+<a class="position-absolute start-0" href="{% url 'seed_detail' view.kwargs.pk %} "> <img src="{% static 'seed/icons/arrow_back_icon.svg' %}"></a>
+{% endblock %}
+
+{% block head %}
+Add Step
+{% endblock %}
+
 {% block content %}
 
     <div>

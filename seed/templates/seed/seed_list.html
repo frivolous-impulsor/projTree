@@ -1,6 +1,5 @@
 {% extends "base.html" %}
-
-
+{% load static %}
 
 {% block head %}
 Select Your Seed
@@ -30,16 +29,24 @@ Select Your Seed
 </div>
 
 {% endblock %}
+
 {% block info %}
 
 {% if user.is_authenticated %}
 <p>hello {{user.username}} </p>
 {% endif %}
 
-<div class="search shadow-sm bg-white py-2 sticky-top container my-2 rounded">
+<div class="search shadow-sm bg-white py-2 px-3 sticky-top container my-2 rounded">
     <form class="d-flex flex-column row g-2 my-2" method="POST" action="{% url 'search_seed' %} "> {% csrf_token %}
         <input class="form-control" type="search" placeholder="attribute" aria-label="Search" name="searched">
         <button class="btn btn-outline-primary" type="submit">Search</button>
     </form>
+
+    <a class="mt-4 col-12 p-1 m-1 btn btn-outline-primary d-flex text-center mx-auto" href=" {% url 'seed_create' %} ">
+        <img src="{% static 'seed/icons/add_icon.svg' %} " alt="">
+        <p class="px-1 mx-1 my-1">Seed</p>
+    </a>
 </div>
+
+
 {% endblock %}

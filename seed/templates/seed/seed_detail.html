@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 
 {% block href %} 
-<a class="position-absolute start-0" href="{% url 'seed_list' %} "> <img src="{% static 'seed/arrow_back_icon.svg' %}" alt="Last Page"></a>
+<a class="position-absolute start-0" href="{% url 'seed_list' %} "> <img src="{% static 'seed/icons/arrow_back_icon.svg' %}" alt="Last Page"></a>
 {% endblock %}
 
 {% block head %}
@@ -31,17 +31,17 @@
     <div class="d-grid gap-2">
         {% if seed.author == user %}
         <a class="col-12 p-1 m-1 btn btn-outline-primary d-flex text-center" href=" {%url 'seed_update' seed.id %} ">
-            <img src="{% static 'seed/edit_icon.svg' %} " alt="">
+            <img src="{% static 'seed/icons/edit_icon.svg' %} " alt="">
             <p class="px-auto mx-auto my-1">Edit</p>
         </a>
         <a class="col-12 p-1 m-1 btn btn-outline-danger d-flex text-center" href="{%url 'seed_delete' seed.id%} ">
-            <img src="{% static 'seed/delete_icon.svg' %}" alt="">
+            <img src="{% static 'seed/icons/delete_icon.svg' %}" alt="">
             <p class="px-auto mx-auto my-1">Delete</p>
         </a>
         {% endif %}
         <a class="col-12 p-1 m-1 btn btn-outline-success d-flex text-center"
             href=" {% url 'step_list' seed.id %} ">
-            <img src="{% static 'seed/steps_icon.svg' %} " alt="">
+            <img src="{% static 'seed/icons/steps_icon.svg' %} " alt="">
             <p class="px-auto mx-auto my-1">Steps</p>
         </a>
     </div>

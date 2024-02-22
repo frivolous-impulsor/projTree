@@ -50,7 +50,7 @@
           </div>
           {% if user.is_authenticated %}
           <div class="col-12 mb-2 shadow-sm py-3 rounded bg-white " >
-            <a class="d-flex justify-content-center" aria-current="page" href="{% url 'profile' %} ">
+            <a class="d-flex justify-content-center" aria-current="page" href="{% url 'profile' %}">
               <img class="mx-1" src="{% static 'seed/icons/profile_icon.svg' %}" alt="alt">
               <p class="d-none d-md-block my-auto">Profile</p>
             </a>
@@ -90,8 +90,7 @@
     </div>  
 
     <div class="contentPart col-lg-8 col-md-10 col-sm-10  bg-light" style="padding-top: 0%;">
-      <div class="heading border-bottom sticky-top text-center bg-light h4"
-        style="box-shadow: 0px 15px 10px -15px; margin: auto; ">
+      <div class="heading border-bottom sticky-top text-center bg-light h4">
         {% block href %} {% endblock %}
         <p class="my-3"> {% block head %} {% endblock %} </p>
       </div>
