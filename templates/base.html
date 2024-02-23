@@ -58,7 +58,7 @@
 
           <div class="col-12 mb-2 shadow-sm p-3 rounded-pill bg-white" >
             <a class="d-flex justify-content-center" aria-current="page" href="{% url 'logout' %} ">
-              <img class="mx-1" src="{% static 'seed/icons/seed_list_icon.svg' %}" alt="alt">
+              <img class="mx-1" src="{% static 'seed/icons/logout_icon.svg' %}" alt="alt">
               <p class="d-none d-md-block my-auto">Logout</p>
             </a>
           </div>
@@ -100,7 +100,7 @@
     </div>
 
 
-    <div class="infoPart col-lg-2 d-none d-lg-block">
+    <div class="infoPart col-lg-2 d-none d-lg-block border-start">
       {% block info %}
       {% endblock %}
       {% if messages %}
@@ -115,7 +115,7 @@
 
     </div>
 
-    <div class="d-sm-none bg-white" style="height: 4rem;">
+    <div class="d-sm-none bg-light" style="height: 4rem;">
     </div>
 
   </div>
@@ -144,7 +144,7 @@
 
         <li class="nav-item btn btn-outline-primary my-1 mx-1">
           <a class="nav-link active d-flex" aria-current="page" href="{% url 'logout' %} ">
-            <img src="{% static 'seed/icons/seed_list_icon.svg' %}" alt="alt">
+            <img src="{% static 'seed/icons/logout_icon.svg' %}" alt="alt">
           </a>
         </li>
     

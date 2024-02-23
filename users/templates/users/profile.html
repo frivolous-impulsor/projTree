@@ -7,16 +7,17 @@ Profile
 {% endblock %}
 
 {% block content %}
-    <div class="infoPart row mt-3 container">
-        <div class=" col-4">
-            <img class="rounded img-thumbnail shadow" src="{{profile.image.url}} " alt="" style="width: 10rem; height: 10rem;">
+    <div class="infoPart row my-3 container">
+        <div class=" col-4 ">
+            <img class="rounded img-thumbnail shadow-sm w-100" src="{{profile.image.url}} " alt="">
         </div>
-        <div class="col-8 border rounded shadow">
+        <div class="col-8 border rounded shadow-sm">
             <p class="h2" >{{profile.user.username}}</p>
             <p class="h5" >{{profile.user.email}}</p>
-            
         </div>
     </div>
+
+    
     
 {% endblock %}
 
@@ -29,6 +30,19 @@ Profile
         <p class="px-1 mx-1 my-1">Edit</p>
     </a>
 </div>
-    
 {% endif %}
+
+<div>
+    <a class="p-1 m-1 btn btn-outline-primary d-flex text-center" href="">
+        <img src="{% static 'seed/icons/seed_list_icon.svg' %} " alt="">
+        <p class="px-1 mx-1 my-1">Seeds</p>
+    </a>
+</div>
+
+<div>
+    <a class="p-1 m-1 btn btn-outline-primary d-flex text-center" href="">
+        <img src="{% static 'seed/icons/posts_icon.svg' %} " alt="">
+        <p class="px-1 mx-1 my-1">Posts</p>
+    </a>
+</div>
 {% endblock %}
