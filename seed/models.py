@@ -6,19 +6,19 @@ from PIL import Image
 from django_resized import ResizedImageField
 
 # Create your models here.
-Months = [
-    ("Jan", "January"),
-    ("Feb", "Feburary"),
-    ("Mar", "March"),
-    ("Apr", "April"),
-    ("May", "May"),
-    ("Jun", "June"),
-    ("Jul", "July"),
-    ("Aug", "August"),
-    ("Sep", "September"),
-    ("Oct", "October"),
-    ("Nov", "November"),
-    ("Dec", "December"),
+seasons = [
+    ("spring", "spring"),
+    ("summer", "summer"),
+    ("fall", "fall"),
+    ("winter", "winter"),
+    ("any season", "any season"),
+]
+
+growthRate = [
+    ("slow", "slow"),
+    ("medium", "medium"),
+    ("Fast", "Fast"),
+    ("Depends on their mood", "Depends on their mood"),
 ]
 
 class Seed(models.Model):
@@ -27,9 +27,9 @@ class Seed(models.Model):
     seedName = models.CharField(max_length=50)
     content = models.TextField()
     seedImg = ResizedImageField(size=[500,300], upload_to='seed_pics', default='default_seed_pic.PNG')
-    obtainTime = models.CharField(max_length=3, choices=Months, default="Jan")
+    obtainTime = models.CharField(max_length=20, choices=seasons, default="any season")
     plantImg = ResizedImageField(size=[500,300], upload_to='plant_pics', default='default_plant_pic.PNG')
-    growthRate = models.IntegerField(null=False, default = 0)
+    growthRate = models.CharField(max_length=30, choices=growthRate, default="Depends on their mood")
     edibleFruit = models.BooleanField(null=False, default = False)
 
     def __str__(self) -> str:
