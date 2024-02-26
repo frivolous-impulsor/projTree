@@ -22,10 +22,15 @@
   <link rel="stylesheet" type="text/css" href="{% static 'seed/css/style.css' %}">
   <title>treeProj</title>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <style>
+    a {
+      color: black;
+    }
+  </style>
 
 </head>
 
-<body class="bg-light">
+<body class="bg-light" >
   <div class="container-fluid row mx-0 bg-light" style="font-family: DM Sans; ">
 
     <div class="navPart col-lg-2 col-md-2 col-sm-2 d-none d-sm-block bg-light border-end">
@@ -80,7 +85,7 @@
           {% endif %}
 
           <div class="col-12 mb-2 shadow-sm p-3 rounded-pill bg-white" >
-            <a class="d-flex justify-content-center" aria-current="page" href="">
+            <a class="d-flex justify-content-center" aria-current="page" href="{% url 'about' %}">
               <img class="mx-1" src="{% static 'seed/icons/about_icon.svg' %}" alt="alt">
               <p class="d-none d-md-block my-auto">about</p>
             </a>
@@ -92,7 +97,7 @@
     <div class="contentPart col-lg-8 col-md-10 col-sm-10  bg-light" style="padding-top: 0%;">
       <div class="heading border-bottom sticky-top text-center bg-light h4">
         {% block href %} {% endblock %}
-        <p class="my-3"> {% block head %} {% endblock %} </p>
+        <p class="my-1"> {% block head %} {% endblock %} </p>
       </div>
       {% block content %}
       {% endblock %}

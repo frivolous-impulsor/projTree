@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'post.apps.PostConfig',
     'seed.apps.SeedConfig',
     'step.apps.StepConfig',
+    'general.apps.GeneralConfig',
     'users.apps.UsersConfig',
     'crispy_forms',
     "crispy_bootstrap5",

@@ -61,3 +61,4 @@ def search_post(request):
         return render(request, 'post/post_search.html', {'searched':searched, 'posts': posts})
     else:
         return render(request, 'post/post_search.html', {})
+    
