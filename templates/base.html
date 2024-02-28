@@ -23,25 +23,18 @@
   <title>treeProj</title>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <style>
-    a {
-      color: black;
+    .navBtn {
+      color: #000;
+      box-sizing: border-box;
+      border: 2px solid transparent;
+    }
+    .navBtn:hover {
+      border: 2px solid #000;
+      color: #000;
     }
 
     body {
-      .navPart{
-        .navs {
-          a {
-            background-color: white;
-          }
-          a:hover {
-            img {
-              display: none;
-            }
-            background-color: black;
-            color: white;
-          }
-        }
-      }
+
     }
   </style>
 
@@ -57,43 +50,43 @@
         </div>
         <div class="navs row justify-content-center mx-1">
 
-          <a href="{% url 'seed_list' %} " class="d-flex rounded-pill justify-content-center col-12 mb-2 shadow-sm py-3">
-            <img class="mx-t1" src="{% static 'seed/icons/seed_list_icon.svg' %}" alt="alt">
+          <a href="{% url 'seed_list' %} " class="navBtn d-flex rounded-pill col-12 mb-2 shadow-sm py-3" >
+            <img class="me-1" src="{% static 'seed/icons/seed_list_icon.svg' %}" alt="alt">
             <p class="d-none d-md-block my-auto">Seeds</p>
           </a>
 
-          <a href="{% url 'posts' %} " class="d-flex rounded-pill justify-content-center col-12 mb-2 shadow-sm py-3">
-            <img class="mx-t1" src="{% static 'seed/icons/posts_icon.svg' %}" alt="alt">
+          <a href="{% url 'posts' %} " class="navBtn d-flex rounded-pill col-12 mb-2 shadow-sm py-3">
+            <img class="me-1" src="{% static 'seed/icons/posts_icon.svg' %}" alt="alt">
             <p class="d-none d-md-block my-auto">Posts</p>
           </a>
 
           {% if user.is_authenticated %}
 
-          <a href="{% url 'profile' %} " class="d-flex rounded-pill justify-content-center col-12 mb-2 shadow-sm py-3">
-            <img class="mx-t1" src="{% static 'seed/icons/profile_icon.svg' %}" alt="alt">
+          <a href="{% url 'profile' %} " class="navBtn d-flex rounded-pill col-12 mb-2 shadow-sm py-3">
+            <img class="me-1" src="{% static 'seed/icons/profile_icon.svg' %}" alt="alt">
             <p class="d-none d-md-block my-auto">Profile</p>
           </a>
 
-          <a href="{% url 'logout' %} " class="d-flex rounded-pill justify-content-center col-12 mb-2 shadow-sm py-3">
-            <img class="mx-t1" src="{% static 'seed/icons/logout_icon.svg' %}" alt="alt">
+          <a href="{% url 'logout' %} " class="navBtn d-flex rounded-pill col-12 mb-2 shadow-sm py-3">
+            <img class="me-1" src="{% static 'seed/icons/logout_icon.svg' %}" alt="alt">
             <p class="d-none d-md-block my-auto">Logout</p>
           </a>
           
           {% else %}
 
-          <a href="{% url 'login' %} " class="d-flex rounded-pill justify-content-center col-12 mb-2 shadow-sm py-3">
-            <img class="mx-t1" src="{% static 'seed/icons/login_icon.svg' %}" alt="alt">
+          <a href="{% url 'login' %} " class="navBtn d-flex rounded-pill col-12 mb-2 shadow-sm py-3">
+            <img class="me-1" src="{% static 'seed/icons/login_icon.svg' %}" alt="alt">
             <p class="d-none d-md-block my-auto">Login</p>
           </a>
 
-          <a href="{% url 'register' %} " class="d-flex rounded-pill justify-content-center col-12 mb-2 shadow-sm py-3">
-            <img class="mx-t1" src="{% static 'seed/icons/register_icon.svg' %}" alt="alt">
+          <a href="{% url 'register' %} " class="navBtn d-flex rounded-pill col-12 mb-2 shadow-sm py-3">
+            <img class="me-1" src="{% static 'seed/icons/register_icon.svg' %}" alt="alt">
             <p class="d-none d-md-block my-auto">Register</p>
           </a>
           {% endif %}
 
-          <a href="{% url 'about' %} " class="d-flex rounded-pill justify-content-center col-12 mb-2 shadow-sm py-3">
-            <img class="mx-t1" src="{% static 'seed/icons/about_icon.svg' %}" alt="alt">
+          <a href="{% url 'about' %} " class="navBtn d-flex rounded-pill col-12 mb-2 shadow-sm py-3">
+            <img class="me-1" src="{% static 'seed/icons/about_icon.svg' %}" alt="alt">
             <p class="d-none d-md-block my-auto">About</p>
           </a>
           
@@ -102,29 +95,34 @@
     </div>  
 
     <div class="contentPart col-lg-8 col-md-10 col-sm-10  bg-light" style="padding-top: 0%;">
-      <div class="heading border-bottom sticky-top text-center bg-light h4">
+      <div class="heading border-bottom sticky-top text-center bg-light h4 py-2">
         {% block href %} {% endblock %}
         <p class="my-1"> {% block head %} {% endblock %} </p>
       </div>
-      {% block content %}
-      {% endblock %}
+      <div class="px-1">
+        {% block content %}
+        {% endblock %}
+      </div>
+
 
     </div>
 
 
     <div class="infoPart col-lg-2 d-none d-lg-block border-start">
-      {% block info %}
-      {% endblock %}
-      {% if messages %}
-      <div class="message">
-        {% for message in messages %}
-        <div class="alert">
-          {{message}}
+      <div class="sticky-top">
+        {% block info %}
+        {% endblock %}
+        {% if messages %}
+        <div class="message">
+          {% for message in messages %}
+          <div class="alert">
+            {{message}}
+          </div>
+          {% endfor %}
         </div>
-        {% endfor %}
+        {% endif %}
       </div>
-      {% endif %}
-
+    
     </div>
 
     <div class="d-sm-none bg-light" style="height: 4rem;">
