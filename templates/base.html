@@ -26,6 +26,23 @@
     a {
       color: black;
     }
+
+    body {
+      .navPart{
+        .navs {
+          a {
+            background-color: white;
+          }
+          a:hover {
+            img {
+              display: none;
+            }
+            background-color: black;
+            color: white;
+          }
+        }
+      }
+    }
   </style>
 
 </head>
@@ -40,56 +57,46 @@
         </div>
         <div class="navs row justify-content-center mx-1">
 
-          <div class="col-12 mb-2 shadow-sm py-3 rounded-pill bg-white " >
-            <a class="d-flex justify-content-center" aria-current="page" href="{% url 'seed_list' %} ">
-              <img class="mx-1" src="{% static 'seed/icons/seed_list_icon.svg' %}" alt="alt">
-              <p class="d-none d-md-block my-auto">Seeds</p>
-            </a>
-          </div>
+          <a href="{% url 'seed_list' %} " class="d-flex rounded-pill justify-content-center col-12 mb-2 shadow-sm py-3">
+            <img class="mx-t1" src="{% static 'seed/icons/seed_list_icon.svg' %}" alt="alt">
+            <p class="d-none d-md-block my-auto">Seeds</p>
+          </a>
 
-          <div class="col-12 mb-2 shadow-sm py-3 rounded-pill bg-white " >
-            <a class="d-flex justify-content-center" aria-current="page" href="{% url 'posts' %} ">
-              <img class="mx-1" src="{% static 'seed/icons/posts_icon.svg' %}" alt="alt">
-              <p class="d-none d-md-block my-auto">Posts</p>
-            </a>
-          </div>
+          <a href="{% url 'posts' %} " class="d-flex rounded-pill justify-content-center col-12 mb-2 shadow-sm py-3">
+            <img class="mx-t1" src="{% static 'seed/icons/posts_icon.svg' %}" alt="alt">
+            <p class="d-none d-md-block my-auto">Posts</p>
+          </a>
+
           {% if user.is_authenticated %}
-          <div class="col-12 mb-2 shadow-sm py-3 rounded-pill bg-white " >
-            <a class="d-flex justify-content-center" aria-current="page" href="{% url 'profile' %}">
-              <img class="mx-1" src="{% static 'seed/icons/profile_icon.svg' %}" alt="alt">
-              <p class="d-none d-md-block my-auto">Profile</p>
-            </a>
-          </div>
 
-          <div class="col-12 mb-2 shadow-sm p-3 rounded-pill bg-white" >
-            <a class="d-flex justify-content-center" aria-current="page" href="{% url 'logout' %} ">
-              <img class="mx-1" src="{% static 'seed/icons/logout_icon.svg' %}" alt="alt">
-              <p class="d-none d-md-block my-auto">Logout</p>
-            </a>
-          </div>
+          <a href="{% url 'profile' %} " class="d-flex rounded-pill justify-content-center col-12 mb-2 shadow-sm py-3">
+            <img class="mx-t1" src="{% static 'seed/icons/profile_icon.svg' %}" alt="alt">
+            <p class="d-none d-md-block my-auto">Profile</p>
+          </a>
+
+          <a href="{% url 'logout' %} " class="d-flex rounded-pill justify-content-center col-12 mb-2 shadow-sm py-3">
+            <img class="mx-t1" src="{% static 'seed/icons/logout_icon.svg' %}" alt="alt">
+            <p class="d-none d-md-block my-auto">Logout</p>
+          </a>
           
           {% else %}
-          <div class="col-12 mb-2 shadow-sm p-3 rounded-pill bg-white" >
-            <a class="d-flex justify-content-center" aria-current="page" href="{% url 'login' %} ">
-              <img class="mx-1" src="{% static 'seed/icons/login_icon.svg' %}" alt="alt">
-              <p class="d-none d-md-block my-auto">Login</p>
-            </a>
-          </div>
 
-          <div class="col-12 mb-2 shadow-sm p-3 rounded-pill bg-white" >
-            <a class="d-flex justify-content-center" aria-current="page" href="{% url 'register' %} ">
-              <img class="mx-1" src="{% static 'seed/icons/register_icon.svg' %}" alt="alt">
-              <p class="d-none d-md-block my-auto">Register</p>
-            </a>
-          </div>
+          <a href="{% url 'login' %} " class="d-flex rounded-pill justify-content-center col-12 mb-2 shadow-sm py-3">
+            <img class="mx-t1" src="{% static 'seed/icons/login_icon.svg' %}" alt="alt">
+            <p class="d-none d-md-block my-auto">Login</p>
+          </a>
+
+          <a href="{% url 'register' %} " class="d-flex rounded-pill justify-content-center col-12 mb-2 shadow-sm py-3">
+            <img class="mx-t1" src="{% static 'seed/icons/register_icon.svg' %}" alt="alt">
+            <p class="d-none d-md-block my-auto">Register</p>
+          </a>
           {% endif %}
 
-          <div class="col-12 mb-2 shadow-sm p-3 rounded-pill bg-white" >
-            <a class="d-flex justify-content-center" aria-current="page" href="{% url 'about' %}">
-              <img class="mx-1" src="{% static 'seed/icons/about_icon.svg' %}" alt="alt">
-              <p class="d-none d-md-block my-auto">about</p>
-            </a>
-          </div>
+          <a href="{% url 'about' %} " class="d-flex rounded-pill justify-content-center col-12 mb-2 shadow-sm py-3">
+            <img class="mx-t1" src="{% static 'seed/icons/about_icon.svg' %}" alt="alt">
+            <p class="d-none d-md-block my-auto">About</p>
+          </a>
+          
         </div>
       </div>
     </div>  
