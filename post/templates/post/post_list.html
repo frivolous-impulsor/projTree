@@ -8,6 +8,13 @@ Posts
 
 
 {% block content %}
+<div class="search mb-1">
+    <form class="d-flex shadow-sm rounded p-2" method="POST" action="{% url 'post_search' %} "> {% csrf_token %}
+        <input class="form-control" type="search" placeholder="attribute" aria-label="Search" name="searched">
+        <button class="btn btn-outline-primary ms-2" type="submit">Search</button>
+    </form>
+</div>
+
 <div class="d-flex flex-column">
     {% for post in posts %}
     <div class="rounded border p-2 mb-2 shadow-sm bg-white">
@@ -26,16 +33,11 @@ Posts
 
 {% block info %}
 
-<div class="search shadow-sm bg-white py-2 px-3 sticky-top container my-2 rounded">
-    <form class="d-flex flex-column row g-2 my-2 border rounded p-1" method="POST" action="{% url 'post_search' %} "> {% csrf_token %}
-        <input class="form-control" type="search" placeholder="attribute" aria-label="Search" name="searched">
-        <button class="btn btn-outline-primary" type="submit">Search</button>
-    </form>
 
-    <a class="mt-4 col-12 p-1 m-1 btn btn-outline-primary d-flex text-center mx-auto" href=" {% url 'post_create' %} ">
-        <img src="{% static 'seed/icons/add_icon.svg' %} " alt="">
-        <p class="px-1 mx-1 my-1">Post</p>
-    </a>
-</div>
+
+<a class="mt-4 col-12 p-1 m-1 btn btn-outline-primary d-flex text-center mx-auto" href=" {% url 'post_create' %} ">
+    <img src="{% static 'seed/icons/add_icon.svg' %} " alt="">
+    <p class="px-1 mx-1 my-1">Post</p>
+</a>
 
 {% endblock %}
