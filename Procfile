@@ -1,1 +1,0 @@
-web: gunicorn projTree.wsgi
