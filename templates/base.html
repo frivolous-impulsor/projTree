@@ -24,6 +24,7 @@
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <style>
     .navBtn {
+      background-color: white;
       color: #000;
       box-sizing: border-box;
       border: 2px solid transparent;
@@ -31,6 +32,10 @@
     .navBtn:hover {
       border: 2px solid #000;
       color: #000;
+    }
+
+    .backBtn{
+      background-color: grey;
     }
 
     body {
@@ -97,6 +102,7 @@
     <div class="contentPart col-lg-8 col-md-10 col-sm-10  bg-light" style="padding-top: 0%;">
       <div class="heading border-bottom sticky-top text-center bg-light h4 py-2">
         {% block href %} {% endblock %}
+        
         <p class="my-1"> {% block head %} {% endblock %} </p>
       </div>
       <div class="px-1">
@@ -110,6 +116,9 @@
 
     <div class="infoPart col-lg-2 d-none d-lg-block border-start">
       <div class="sticky-top">
+        {% if user.is_authenticated %}
+        <p>hello {{user.username}} </p>
+        {% endif %}
         {% block info %}
         {% endblock %}
         {% if messages %}
