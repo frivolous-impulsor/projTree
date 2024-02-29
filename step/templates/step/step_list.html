@@ -12,10 +12,10 @@ Steps for {{steps.0.seed.seedName}}
 
 
 
-<div class="container-fluid row mx-auto">
+<div class="row mx-auto">
     {% for step in steps %}
     <div class="row seed m-1 p-1 border rounded shadow mt-3">
-        <img class="col-lg-5 col-md-5 col img-thumbnail" src="{{ step.img.url }}" alt="img of {{seed.seedName}}"
+        <img class="col-lg-5 col-md-5 col rounded border" src="{{ step.img.url }}" alt="img of {{seed.seedName}}"
             style="object-fit: cover;">
         <div class="info col-lg-7 col-md-6 col">
             <div class="h5 border-bottom">{{step.title}} </div>

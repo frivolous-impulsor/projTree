@@ -2,8 +2,9 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-{% block href %} 
-<a class="position-absolute start-0" href="{% url 'seed_list' %} "> <img src="{% static 'seed/icons/arrow_back_icon.svg' %}" alt="Last Page"></a>
+{% block href %}
+<a class="position-absolute start-0" href="{% url 'seed_list' %} "> <img
+        src="{% static 'seed/icons/arrow_back_icon.svg' %}" alt="Last Page"></a>
 {% endblock %}
 
 {% block head %}
@@ -13,19 +14,12 @@
 {% block content %}
 
 <div class="row container p-3 mx-auto">
-    <div class="row seed m-1 p-1 rounded shadow bg-light">
-        <img class="col-lg-5 col-md-5 col img-thumbnail" src="{{seed.seedImg.url}}" alt="img of {{seed.seedName}}"
-            style="object-fit: cover">
+    <div class="row seed m-1 p-1 rounded shadow bg-white">
+        <img class="border rounded col-lg-5 col-md-5 col" src="{{seed.seedImg.url}}" alt="img of {{seed.seedName}}"
+            style=" object-fit:cover;">
         <div class="thought col-lg-7 col-md-6 col">
-            <p class="border-bottom h5">Why I Chose this {{seed.seedName}} </p>
-            <p class="h6">{{seed.content}} </p>
-        </div>
-    </div>
-    <div class="row seed m-1 p-1 rounded shadow bg-light mt-3">
-        <img class="col-lg-5 col-md-5 col img-thumbnail" src="{{seed.plantImg.url}}" alt="img of {{seed.seedName}}"
-            style="object-fit: cover">
-        <div class="info col-lg-7 col-md-6 col">
-            <div class="h5 border-bottom">General info</div>
+            <p class="rounded border p-1 bg-light h5" style="width: fit-content;"> Info </p>
+            <p class="h6 border-bottom"> "{{seed.content}}" </p>
             <p class="h6">Obtain time: {{seed.obtainTime}}</p>
             {% if seed.edibleFruit %}
             <p class="h6">Is edible :P</p>
@@ -34,15 +28,13 @@
             {% endif %}
             <p class="h6">Growth rate: {{seed.growthRate}} </p>
         </div>
-        
-        
     </div>
 </div>
 {% endblock %}
 
 {% block info %}
 
-<div class="container my-1 row d-flex">
+<div class="my-1 row d-flex">
     <div class="d-grid gap-2">
         {% if seed.author == user %}
         <a class="col-12 p-1 m-1 btn btn-outline-primary d-flex text-center" href=" {%url 'seed_update' seed.id %} ">
@@ -54,8 +46,7 @@
             <p class="px-auto mx-auto my-1">Delete</p>
         </a>
         {% endif %}
-        <a class="col-12 p-1 m-1 btn btn-outline-success d-flex text-center"
-            href=" {% url 'step_list' seed.id %} ">
+        <a class="col-12 p-1 m-1 btn btn-outline-success d-flex text-center" href=" {% url 'step_list' seed.id %} ">
             <img src="{% static 'seed/icons/steps_icon.svg' %} " alt="">
             <p class="px-auto mx-auto my-1">Steps</p>
         </a>
