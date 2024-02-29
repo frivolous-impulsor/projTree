@@ -1,1 +1,1 @@
-web: gunicorn projTree.wsgi
+web: gunicorn projTree:app
