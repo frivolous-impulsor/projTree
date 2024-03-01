@@ -23,8 +23,8 @@ Select Your Seed
                 <div class="seed_card rounded shadow-sm my-2 bg-white seedCard">
                     <img src="{{ seed.seedImg.url }}" class="card-img-top img-fluid" alt="...">
                     <div class="text-center">
-                        <p class=" h5 text-decoration-none">{{ seed.seedName }}</p>
-                        <a class="h6" href="{% url 'user_seeds' seed.author %} ">By {{ seed.author }}</a>
+                        <p class="title h5">{{ seed.seedName }}</p>
+                        <a class="author h6" href="{% url 'user_seeds' seed.author %} ">By {{ seed.author }}</a>
                     </div>
                 </div>
             </a>
@@ -40,11 +40,8 @@ Select Your Seed
 
 
 {% block info %}
-
-
-<a class="mt-4 col-12 p-1 m-1 btn btn-outline-primary d-flex text-center mx-auto" href=" {% url 'seed_create' %} ">
-    <img src="{% static 'seed/icons/add_icon.svg' %} " alt="">
-    <p class="px-1 mx-1 my-1">Seed</p>
+<a href="{% url 'seed_create' %} " class="navBtn d-flex rounded-pill col-12 mb-2 shadow-sm py-3 bg-white" >
+    <img class="me-1" src="{% static 'seed/icons/add_icon.svg' %}" alt="alt">
+    <p class="d-none d-md-block my-auto">Seeds</p>
 </a>
-
 {% endblock %}

@@ -18,6 +18,9 @@ def register(request):
         form = UserRegisterForm() #empty form
     return render(request, 'users/register.html', {'form': form}) #form depends on page fresh or not
 
+def confirm_logout(request):
+    return render(request, 'users/confirm_logout.html')
+
 def UserLogout(request):
     logout(request)
     return render(request, 'users/logout.html')
