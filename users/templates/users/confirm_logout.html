@@ -8,14 +8,13 @@ Logout
 {% block content %}
 
     <div>
-        <h1>You Logged Out (:P)</h1>
-
         <form >
             <small class="d-flex">
-                <p class="my-auto me-2">Wanna log back in?</p>
+                <p class="my-auto me-2">Are you sure you wish to logout?</p>
                 
-                <a href="{% url 'login' %}" class="btn btn-outline-primary">Log In</a>
+                <a href="{% url 'logout' %}" class="btn btn-outline-danger">Logout</a>
             </small>
+            <a href="{% url 'seed_list' %}" class="btn btn-outline-secondary">Cancel</a>
         </form>
     </div>
 

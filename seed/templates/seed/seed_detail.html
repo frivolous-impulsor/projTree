@@ -34,24 +34,22 @@
 
 {% block info %}
 
-<div class="my-1 row d-flex">
-    <div class="d-grid gap-2">
         {% if seed.author == user %}
-        <a class="col-12 p-1 m-1 btn btn-outline-primary d-flex text-center" href=" {%url 'seed_update' seed.id %} ">
-            <img src="{% static 'seed/icons/edit_icon.svg' %} " alt="">
-            <p class="px-auto mx-auto my-1">Edit</p>
+        <a href="{%url 'seed_update' seed.id %} " class="navBtn d-flex rounded-pill col-12 mb-2 shadow-sm py-3 bg-white" >
+            <img class="me-1" src="{% static 'seed/icons/edit_icon.svg' %}" alt="alt">
+            <p class="d-none d-md-block my-auto">Edit</p>
         </a>
-        <a class="col-12 p-1 m-1 btn btn-outline-danger d-flex text-center" href="{%url 'seed_delete' seed.id%} ">
-            <img src="{% static 'seed/icons/delete_icon.svg' %}" alt="">
-            <p class="px-auto mx-auto my-1">Delete</p>
-        </a>
-        {% endif %}
-        <a class="col-12 p-1 m-1 btn btn-outline-success d-flex text-center" href=" {% url 'step_list' seed.id %} ">
-            <img src="{% static 'seed/icons/steps_icon.svg' %} " alt="">
-            <p class="px-auto mx-auto my-1">Steps</p>
-        </a>
-    </div>
 
-</div>
+        <a href="{%url 'seed_delete' seed.id%}  " class="navBtn d-flex rounded-pill col-12 mb-2 shadow-sm py-3 bg-white" >
+            <img class="me-1" src="{% static 'seed/icons/delete_icon.svg' %}" alt="alt">
+            <p class="d-none d-md-block my-auto">Delete</p>
+        </a>
+
+        {% endif %}
+        <a href="{% url 'step_list' seed.id %}  " class="navBtn d-flex rounded-pill col-12 mb-2 shadow-sm py-3 bg-white" >
+            <img class="me-1" src="{% static 'seed/icons/steps_icon.svg' %}" alt="alt">
+            <p class="d-none d-md-block my-auto">Steps</p>
+        </a>
+
 
 {% endblock %}
