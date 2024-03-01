@@ -1,4 +1,4 @@
-# projTree by Oliver Li
+# projTree by Oliver Li, visit the web at https://frivolousimpulsor95.pythonanywhere.com/
 The website is a django project that supports user login/out/register. Upon logged in, a user is entitled to create/edit/delete abtrary number of seed profiles of theirs.
 A seed profile is a basic introduction of a seed, including it's name, time to obtain(month of the year), growth rate, picture, picture after grow up, general difficulty to plant, and maybe more. Each seed possesses numerous steps to plant, including how to extract seed, process seed, plant seed, after plant measurements, watering frequency and all based on user's understanding and preference.
 A visitor, regardless of log status, is able to check the list of seed types based on their attributes like obtain month, growth rate, difficulty to plant, and maybe more.
