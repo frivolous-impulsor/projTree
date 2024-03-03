@@ -37,16 +37,14 @@ Steps for {{steps.0.seed.seedName}}
     
 {% endblock %}
 
-{% block info %}
-<div class="container my-1 row d-flex">
-    <div class="d-grid gap-2">
-        {% if steps.0.seed.author == user %}
-        <a class="col-12 p-1 m-1 btn btn-outline-primary d-flex text-center" href=" {% url 'step_create' steps.0.seed.id %} ">
-            <img src="{% static 'seed/icons/add_icon.svg' %} " alt="">
-            <p class="px-1 mx-1 my-1">Step</p>
-        </a>
-        {% endif %}
-    </div>
 
-</div>
+
+{% block info %}
+{% if steps.0.seed.author == user %}
+
+<a href="{% url 'step_create' steps.0.seed.id %}  " class="navBtn d-flex rounded-pill col-12 mb-2 shadow-sm py-3 bg-white" >
+    <img class="me-1" src="{% static 'seed/icons/add_icon.svg' %}" alt="alt">
+    <p class="d-none d-md-block my-auto">Steps</p>
+</a>
+{% endif %}
 {% endblock %}
