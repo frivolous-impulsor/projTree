@@ -34,22 +34,22 @@
 
 {% block info %}
 
-        {% if seed.author == user %}
-        <a href="{%url 'seed_update' seed.id %} " class="navBtn d-flex rounded-pill col-12 mb-2 shadow-sm py-3 bg-white" >
-            <img class="me-1" src="{% static 'seed/icons/edit_icon.svg' %}" alt="alt">
-            <p class="d-none d-md-block my-auto">Edit</p>
-        </a>
+{% if seed.author == user %}
+<a href="{%url 'seed_update' seed.id %} " class="navBtn d-flex rounded-pill col-12 mb-2 shadow-sm py-3 bg-white" >
+    <img class="me-1" src="{% static 'seed/icons/edit_icon.svg' %}" alt="alt">
+    <p class="d-none d-md-block my-auto">Edit</p>
+</a>
 
-        <a href="{%url 'seed_delete' seed.id%}  " class="navBtn d-flex rounded-pill col-12 mb-2 shadow-sm py-3 bg-white" >
-            <img class="me-1" src="{% static 'seed/icons/delete_icon.svg' %}" alt="alt">
-            <p class="d-none d-md-block my-auto">Delete</p>
-        </a>
+<a href="{%url 'seed_delete' seed.id%}  " class="navBtn d-flex rounded-pill col-12 mb-2 shadow-sm py-3 bg-white" >
+    <img class="me-1" src="{% static 'seed/icons/delete_icon.svg' %}" alt="alt">
+    <p class="d-none d-md-block my-auto">Delete</p>
+</a>
 
-        {% endif %}
-        <a href="{% url 'step_list' seed.id %}  " class="navBtn d-flex rounded-pill col-12 mb-2 shadow-sm py-3 bg-white" >
-            <img class="me-1" src="{% static 'seed/icons/steps_icon.svg' %}" alt="alt">
-            <p class="d-none d-md-block my-auto">Steps</p>
-        </a>
+{% endif %}
+<a href="{% url 'step_list' seed.id %}  " class="navBtn d-flex rounded-pill col-12 mb-2 shadow-sm py-3 bg-white" >
+    <img class="me-1" src="{% static 'seed/icons/steps_icon.svg' %}" alt="alt">
+    <p class="d-none d-md-block my-auto">Steps</p>
+</a>
 
 
 {% endblock %}

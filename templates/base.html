@@ -76,24 +76,24 @@
 </head>
 
 <body class="bg-light" style="height: 100%;">
-  <div class="container-fluid row mx-0 bg-light" style="font-family: DM Sans; ">
+  <div class="container-fluid row mx-0 bg-light" style="font-family: DM Sans; font-weight:900;">
 
     <div class="navPart col-lg-2 col-md-2 col-sm-2 d-none d-sm-block bg-light border-end">
       <div class="d-flex flex-column sticky-top">
         <div class="logo justify-content-center align-content-center mb-5">
           <a class="text-body navbar-brand d-none d-md-block text-center" href="{% url 'home' %} "><strong>projTree</strong></a>
         </div>
-        <div class="navs row justify-content-center mx-1">
+        <div class="navs row g-2 justify-content-center mx-1">
 
           <a href="{% url 'seed_list' %} " class="navBtn d-flex rounded-pill col-12 mb-2 shadow-sm py-3" >
             <img class="me-1" src="{% static 'seed/icons/seed_list_icon.svg' %}" alt="alt">
             <p class="d-none d-md-block my-auto">Seeds</p>
           </a>
 
-          <a href="{% url 'posts' %} " class="navBtn d-flex rounded-pill col-12 mb-2 shadow-sm py-3">
+          <!-- <a href="{% url 'posts' %} " class="navBtn d-flex rounded-pill col-12 mb-2 shadow-sm py-3">
             <img class="me-1" src="{% static 'seed/icons/posts_icon.svg' %}" alt="alt">
             <p class="d-none d-md-block my-auto">Posts</p>
-          </a>
+          </a> -->
 
           {% if user.is_authenticated %}
 
